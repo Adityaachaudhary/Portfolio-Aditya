@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Download, Code } from 'lucide-react';
 
 interface HeroProps {
   isDarkMode: boolean;
