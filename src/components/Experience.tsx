@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Calendar, MapPin, Users, Code, Database } from 'lucide-react';
+import TechIcon from './TechIcon';
 
 interface ExperienceProps {
   isDarkMode: boolean;
@@ -55,7 +56,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
           suffix: 'sample datasets, focusing on data preparation and model implementation'
         }
       ],
-      skills: ['Python', 'Machine Learning', 'Data Science', 'Algorithm Design']
+      skills: ['Python', 'Machine Learning', 'Data Science']
     }
   ];
 
@@ -211,14 +212,15 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, skillIndex) => (
-                        <span
+                        <div
                           key={skillIndex}
-                          className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-300 hover:bg-[#00BFFF] hover:text-white ${
+                          className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-colors duration-300 hover:bg-[#00BFFF] hover:text-white ${
                             isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
                           }`}
                         >
+                          <TechIcon name={skill} size={14} />
                           {skill}
-                        </span>
+                        </div>
                       ))}
                     </div>
                   </div>

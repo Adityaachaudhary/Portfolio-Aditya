@@ -33,11 +33,11 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
             {/* Profile Image */}
             <div className="text-center">
               <div className={`relative inline-block p-1 rounded-2xl bg-gradient-to-r from-[#00BFFF] to-blue-400`}>
-                <div className={`w-80 h-80 rounded-xl flex items-center justify-center text-6xl font-bold ${
-                  isDarkMode ? 'bg-[#16213E] text-white' : 'bg-white text-gray-800'
-                }`}>
-                  <User size={120} className="text-[#00BFFF]" />
-                </div>
+                <img 
+                  src="/lovable-uploads/1f43db19-f6e6-413f-9c5a-6a33cbe0850d.png"
+                  alt="Aditya Prakash Chaudhary"
+                  className="w-80 h-80 rounded-xl object-cover object-center"
+                />
               </div>
             </div>
 

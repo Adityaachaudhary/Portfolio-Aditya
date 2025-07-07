@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ExternalLink, Github, Code, Database, Zap, Users, Globe, Shield } from 'lucide-react';
+import TechIcon from './TechIcon';
 
 interface ProjectsProps {
   isDarkMode: boolean;
@@ -38,7 +39,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       title: 'FreeScribe',
       subtitle: 'AI-Powered Voice Transcription',
       description: 'Advanced voice-to-text application using OpenAI models with high accuracy and browser compatibility.',
-      technologies: ['JavaScript', 'OpenAI API', 'Audiotext APIs', 'Bootstrap', 'Web Speech API'],
+      technologies: ['JavaScript', 'OpenAI API', 'Bootstrap', 'HTML', 'CSS'],
       features: [
         'Real-time voice transcription',
         'Multiple language support',
@@ -61,7 +62,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       title: 'StrengthMax',
       subtitle: 'Fitness Tracking & Planning',
       description: 'Comprehensive fitness application for tracking workouts and creating personalized exercise plans.',
-      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Chart.js'],
+      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
       features: [
         'Personalized workout plans',
         'Exercise tracking and analytics',
@@ -165,16 +166,17 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                 <Database className="text-[#00BFFF]" size={20} />
                 Technologies Used
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, index) => (
-                  <span
+                  <div
                     key={index}
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium ${
                       isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
                     }`}
                   >
+                    <TechIcon name={tech} size={16} />
                     {tech}
-                  </span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -286,16 +288,17 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
 
                   {/* Technologies */}
                   <div className="mb-6">
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                        <span
+                        <div
                           key={techIndex}
-                          className={`px-2 py-1 rounded text-xs font-medium ${
+                          className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
                             isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600'
                           }`}
                         >
+                          <TechIcon name={tech} size={12} />
                           {tech}
-                        </span>
+                        </div>
                       ))}
                       {project.technologies.length > 3 && (
                         <span className={`px-2 py-1 rounded text-xs font-medium ${

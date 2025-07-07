@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Code, Database, Settings, Layers } from 'lucide-react';
+import TechIcon from './TechIcon';
 
 interface SkillsProps {
   isDarkMode: boolean;
@@ -13,7 +14,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
     languages: {
       title: 'Languages',
       icon: Code,
-      skills: ['Java', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Basic Python']
+      skills: ['Java', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Python']
     },
     frameworks: {
       title: 'Frameworks',
@@ -28,7 +29,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
     tools: {
       title: 'Dev Tools',
       icon: Settings,
-      skills: ['Visual Studio Code', 'Git', 'GitHub', 'Postman', 'Google Cloud Platform']
+      skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform']
     },
     competency: {
       title: 'Competencies',
@@ -118,9 +119,13 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                   <div className={`w-12 h-12 mx-auto mb-4 rounded-lg flex items-center justify-center transition-colors duration-300 ${
                     isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
                   }`}>
-                    <Code className={`transition-colors duration-300 ${
-                      isDarkMode ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-white'
-                    }`} size={24} />
+                    <TechIcon 
+                      name={skill} 
+                      size={24} 
+                      className={`transition-all duration-300 ${
+                        isDarkMode ? 'group-hover:brightness-0 group-hover:invert' : 'group-hover:brightness-0 group-hover:invert'
+                      }`}
+                    />
                   </div>
                   <h3 className={`font-semibold text-sm transition-colors duration-300 ${
                     isDarkMode ? 'text-white group-hover:text-[#00BFFF]' : 'text-gray-900 group-hover:text-[#00BFFF]'

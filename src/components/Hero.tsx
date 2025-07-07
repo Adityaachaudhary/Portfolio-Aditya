@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Download, Code } from 'lucide-react';
 
@@ -42,13 +43,13 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-          {/* Profile Image Placeholder */}
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-[#00BFFF] to-blue-400 p-1 animate-scale-in">
-            <div className={`w-full h-full rounded-full flex items-center justify-center text-4xl font-bold ${
-              isDarkMode ? 'bg-[#1A1A2E] text-white' : 'bg-white text-gray-800'
-            }`}>
-              AP
-            </div>
+          {/* Profile Image */}
+          <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-[#00BFFF] to-blue-400 p-1 animate-scale-in">
+            <img 
+              src="/lovable-uploads/1f43db19-f6e6-413f-9c5a-6a33cbe0850d.png"
+              alt="Aditya Prakash Chaudhary"
+              className="w-full h-full rounded-full object-cover object-center"
+            />
           </div>
 
           {/* Main Heading */}
