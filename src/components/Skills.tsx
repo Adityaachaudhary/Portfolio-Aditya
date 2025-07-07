@@ -122,9 +122,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                     <TechIcon 
                       name={skill} 
                       size={24} 
-                      className={`transition-all duration-300 ${
-                        isDarkMode ? 'group-hover:brightness-0 group-hover:invert' : 'group-hover:brightness-0 group-hover:invert'
-                      }`}
+                      className="transition-opacity duration-300"
                     />
                   </div>
                   <h3 className={`font-semibold text-sm transition-colors duration-300 ${
