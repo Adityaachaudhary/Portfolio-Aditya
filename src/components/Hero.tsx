@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden pt-20 ${
+    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden pt-32 ${
       isDarkMode ? 'bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F0F2C]' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
       {/* Background Pattern */}
@@ -163,7 +163,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           </div>
           <ChevronDown size={24} />
         </div>
-      </div>
+      </button>
     </section>
   );
 };
