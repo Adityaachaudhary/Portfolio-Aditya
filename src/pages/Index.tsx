@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, MessageSquare } from 'lucide-react';
+import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, MessageSquare, Brain } from 'lucide-react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
+import AITools from '@/components/AITools';
 import Contact from '@/components/Contact';
 
 const Index = () => {
@@ -15,7 +16,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -53,17 +54,18 @@ const Index = () => {
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'projects', label: 'Projects', icon: FolderOpen },
     { id: 'certificates', label: 'Certificates', icon: Award },
+    { id: 'ai-tools', label: 'AI Tools', icon: Brain },
     { id: 'contact', label: 'Contact', icon: MessageSquare },
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-[#1A1A2E]' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gradient-to-br from-black via-gray-900 to-gray-800' : 'bg-gradient-to-br from-gray-900 via-gray-800 to-black'}`}>
       {/* Navigation Header */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-opacity-90 border-b border-opacity-20">
-        <div className={`${isDarkMode ? 'bg-[#1A1A2E]/90 border-gray-700' : 'bg-white/90 border-gray-200'} transition-colors duration-300`}>
+        <div className="bg-black/90 border-gray-700 transition-colors duration-300">
           <nav className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="text-xl font-bold bg-gradient-to-r from-[#00BFFF] to-blue-400 bg-clip-text text-transparent">
+              <div className="text-xl font-bold bg-gradient-to-r from-[#00BFFF] to-cyan-400 bg-clip-text text-transparent">
                 Portfolio
               </div>
               
@@ -75,12 +77,12 @@ const Index = () => {
                     className={`relative text-sm font-medium transition-colors duration-200 hover:text-[#00BFFF] ${
                       activeSection === item.id 
                         ? 'text-[#00BFFF]' 
-                        : isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                        : 'text-gray-300'
                     }`}
                   >
                     {item.label}
                     {activeSection === item.id && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00BFFF] rounded-full" />
+                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-cyan-400 rounded-full shadow-lg shadow-[#00BFFF]/50" />
                     )}
                   </button>
                 ))}
@@ -88,9 +90,7 @@ const Index = () => {
 
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors duration-200 ${
-                  isDarkMode ? 'hover:bg-gray-700 text-gray-300' : 'hover:bg-gray-100 text-gray-600'
-                }`}
+                className="p-2 rounded-lg transition-colors duration-200 hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50"
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -125,18 +125,20 @@ const Index = () => {
           <Certificates isDarkMode={isDarkMode} />
         </section>
 
+        <section id="ai-tools">
+          <AITools isDarkMode={isDarkMode} />
+        </section>
+
         <section id="contact">
           <Contact isDarkMode={isDarkMode} />
         </section>
       </main>
 
       {/* Footer */}
-      <footer className={`border-t transition-colors duration-300 ${
-        isDarkMode ? 'bg-[#0F0F2C] border-gray-700' : 'bg-white border-gray-200'
-      }`}>
+      <footer className="border-t transition-colors duration-300 bg-black border-gray-700">
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className="text-sm text-gray-400">
               © 2025 Aditya Prakash Chaudhary. All rights reserved.
             </div>
             <div className="flex items-center space-x-4 mt-4 md:mt-0">
@@ -144,9 +146,7 @@ const Index = () => {
                 href="https://linkedin.com/in/aditya-prakash"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-colors duration-200 ${
-                  isDarkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
-                }`}
+                className="p-2 rounded-lg transition-all duration-200 hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF] hover:scale-110"
               >
                 <Linkedin size={20} />
               </a>
@@ -154,17 +154,13 @@ const Index = () => {
                 href="https://github.com/aditya-prakash"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-colors duration-200 ${
-                  isDarkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
-                }`}
+                className="p-2 rounded-lg transition-all duration-200 hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF] hover:scale-110"
               >
                 <Github size={20} />
               </a>
               <a
                 href="mailto:adityaprakash.280102@gmail.com"
-                className={`p-2 rounded-lg transition-colors duration-200 ${
-                  isDarkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
-                }`}
+                className="p-2 rounded-lg transition-all duration-200 hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF] hover:scale-110"
               >
                 <Mail size={20} />
               </a>
