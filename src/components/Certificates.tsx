@@ -62,6 +62,8 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
     }
   ];
 
+  const totalCertificates = certificates.length;
+
   return (
     <section className={`py-20 ${isDarkMode ? 'bg-[#16213E]' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
@@ -202,7 +204,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               </p>
               <div className="flex justify-center items-center space-x-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#00BFFF] mb-1">5</div>
+                  <div className="text-3xl font-bold text-[#00BFFF] mb-1">{totalCertificates}</div>
                   <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                     Certifications Earned
                   </div>
