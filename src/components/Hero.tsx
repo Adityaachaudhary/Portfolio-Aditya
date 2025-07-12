@@ -48,7 +48,11 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 bg-gradient-to-br from-black via-gray-900 to-gray-800">
+    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden pt-32 ${
+      isDarkMode 
+        ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+    }`}>
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-gradient-to-r from-[#00BFFF] to-cyan-400 blur-3xl animate-pulse" />
@@ -61,14 +65,18 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           {/* Main Heading */}
           <div className="space-y-6">
             <div className="relative">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r from-white via-gray-200 to-[#00BFFF] bg-clip-text text-transparent">
+              <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r ${
+                isDarkMode 
+                  ? 'from-white via-gray-200 to-[#00BFFF]' 
+                  : 'from-gray-900 via-gray-700 to-[#00BFFF]'
+              } bg-clip-text text-transparent`}>
                 ADITYA PRAKASH CHAUDHARY
               </h1>
             </div>
             
             {/* Typing effect */}
             <div className="h-20 flex items-center justify-center">
-              <h2 className="text-2xl md:text-3xl font-medium text-gray-300">
+              <h2 className={`text-2xl md:text-3xl font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 <span className="inline-block min-w-[1ch]">{typedText}</span>
                 <span className="text-[#00BFFF] font-bold animate-pulse">|</span>
               </h2>
@@ -77,7 +85,9 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
 
           {/* Tagline */}
           <div className="relative">
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light text-gray-300">
+            <p className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               Crafting <span className="text-[#00BFFF] font-semibold">seamless digital experiences</span> with 
               <br className="hidden md:block" />
               innovative solutions and <span className="text-[#00BFFF] font-semibold">scalable architecture</span>
@@ -120,7 +130,11 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
                 href={href}
                 target={href.startsWith('mailto:') ? undefined : "_blank"}
                 rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
-                className="group p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl border border-gray-600/50 bg-gray-900/50 text-gray-300 hover:bg-gradient-to-br hover:from-[#00BFFF] hover:to-cyan-400 hover:text-white hover:border-[#00BFFF] backdrop-blur-sm shadow-lg"
+                className={`group p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl border ${
+                  isDarkMode 
+                    ? 'border-gray-600/50 bg-gray-900/50 text-gray-300' 
+                    : 'border-gray-300/50 bg-white/50 text-gray-700'
+                } hover:bg-gradient-to-br hover:from-[#00BFFF] hover:to-cyan-400 hover:text-white hover:border-[#00BFFF] backdrop-blur-sm shadow-lg`}
                 title={label}
               >
                 <Icon size={24} className="transition-transform duration-300 group-hover:rotate-12" />
@@ -133,11 +147,17 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 hover:scale-110 text-gray-400 hover:text-[#00BFFF]"
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 hover:scale-110 ${
+          isDarkMode ? 'text-gray-400 hover:text-[#00BFFF]' : 'text-gray-600 hover:text-[#00BFFF]'
+        }`}
       >
         <div className="flex flex-col items-center gap-2">
-          <div className="w-6 h-10 border-2 rounded-full flex justify-center border-gray-400 hover:border-[#00BFFF] transition-colors duration-300">
-            <div className="w-1 h-3 rounded-full mt-2 bg-gray-400 animate-bounce" />
+          <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-300 ${
+            isDarkMode ? 'border-gray-400 hover:border-[#00BFFF]' : 'border-gray-600 hover:border-[#00BFFF]'
+          }`}>
+            <div className={`w-1 h-3 rounded-full mt-2 animate-bounce ${
+              isDarkMode ? 'bg-gray-400' : 'bg-gray-600'
+            }`} />
           </div>
           <ChevronDown size={24} className="animate-pulse" />
         </div>

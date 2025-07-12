@@ -1,24 +1,17 @@
 
 import React from 'react';
-import { Download, MapPin, Calendar, GraduationCap, Code, Coffee } from 'lucide-react';
+import { Download, MapPin, Calendar, GraduationCap, Code, Award, BookOpen, Star } from 'lucide-react';
 
 interface AboutProps {
   isDarkMode: boolean;
 }
 
 const About: React.FC<AboutProps> = ({ isDarkMode }) => {
-  const stats = [
-    { icon: Code, label: 'Projects Completed', value: '15+' },
-    { icon: Coffee, label: 'Cups of Coffee', value: '500+' },
-    { icon: GraduationCap, label: 'Certifications', value: '5+' },
-    { icon: Calendar, label: 'Years Learning', value: '3+' }
-  ];
-
   return (
     <section className={`py-20 relative overflow-hidden ${
       isDarkMode 
         ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-gray-900 via-gray-800 to-black'
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
@@ -30,18 +23,22 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-[#00BFFF] bg-clip-text text-transparent">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r ${
+              isDarkMode 
+                ? 'from-white via-gray-200 to-[#00BFFF]' 
+                : 'from-gray-900 via-gray-700 to-[#00BFFF]'
+            } bg-clip-text text-transparent`}>
               About <span className="text-[#00BFFF]">Me</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#00BFFF] to-cyan-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Photo Section - Increased size */}
+            {/* Photo Section - Increased size significantly */}
             <div className="relative">
-              <div className="relative w-full max-w-lg mx-auto">
-                {/* Increased container size */}
-                <div className="relative w-96 h-96 mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
+              <div className="relative w-full max-w-2xl mx-auto">
+                {/* Much larger container */}
+                <div className="relative w-[500px] h-[500px] mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
                   <img
                     src="/lovable-uploads/1f43db19-f6e6-413f-9c5a-6a33cbe0850d.png"
                     alt="Aditya Prakash Chaudhary"
@@ -65,13 +62,13 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     <MapPin size={20} />
                     <span className="text-lg font-medium">Based in India</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-white">
+                  <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                     Full Stack Developer & 
                     <span className="bg-gradient-to-r from-[#00BFFF] to-cyan-400 bg-clip-text text-transparent"> Tech Enthusiast</span>
                   </h3>
                 </div>
 
-                <div className="space-y-4 text-gray-300 leading-relaxed">
+                <div className={`space-y-4 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   <p className="text-lg">
                     I'm a passionate full-stack developer with expertise in the <span className="text-[#00BFFF] font-semibold">MERN stack</span> and modern web technologies. 
                     I love creating seamless, user-friendly applications that solve real-world problems.
@@ -80,10 +77,53 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     With a strong foundation in both <span className="text-[#00BFFF] font-semibold">frontend</span> and <span className="text-[#00BFFF] font-semibold">backend</span> technologies, 
                     I enjoy the entire development process - from conceptualization and design to deployment and maintenance.
                   </p>
-                  <p>
-                    I'm constantly learning and exploring new technologies to stay current with industry trends and best practices. 
-                    My goal is to create impactful digital experiences that make a difference.
-                  </p>
+                </div>
+
+                {/* Resume Details */}
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl ${
+                  isDarkMode 
+                    ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
+                    : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-200/50'
+                } backdrop-blur-sm shadow-2xl`}>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
+                      <GraduationCap className="text-[#00BFFF]" size={20} />
+                    </div>
+                    <div>
+                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>CGPA</div>
+                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>8.5/10</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
+                      <BookOpen className="text-[#00BFFF]" size={20} />
+                    </div>
+                    <div>
+                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Education</div>
+                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>B.Tech CSE</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
+                      <Award className="text-[#00BFFF]" size={20} />
+                    </div>
+                    <div>
+                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Certifications</div>
+                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>5+ Earned</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
+                      <Star className="text-[#00BFFF]" size={20} />
+                    </div>
+                    <div>
+                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Experience</div>
+                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>2+ Years</div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Download Resume Button */}
@@ -96,28 +136,6 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     </div>
                   </button>
                 </div>
-              </div>
-
-              {/* Stats Section */}
-              <div className="grid grid-cols-2 gap-6 pt-8">
-                {stats.map((stat, index) => {
-                  const IconComponent = stat.icon;
-                  return (
-                    <div key={index} className="group text-center p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-700/50 hover:border-[#00BFFF]/30 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                      <div className="mb-3 flex justify-center">
-                        <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 group-hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="text-[#00BFFF]" size={24} />
-                        </div>
-                      </div>
-                      <div className="text-2xl font-bold text-white mb-1 group-hover:text-[#00BFFF] transition-colors duration-300">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-400">
-                        {stat.label}
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </div>

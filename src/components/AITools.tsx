@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Brain, Code, Zap, Sparkles, Bot, Rocket, Terminal, Lightbulb } from 'lucide-react';
+import { Brain, Code, Zap, Sparkles, Bot, Rocket, Terminal, Lightbulb, MessageSquare, Cpu, Wand2, GitBranch } from 'lucide-react';
 
 interface AIToolsProps {
   isDarkMode: boolean;
@@ -12,7 +12,7 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
       name: 'Cursor',
       description: 'AI-powered code editor with intelligent autocomplete and code generation',
       icon: Code,
-      experience: 'Advanced',
+      experience: 'Expert',
       category: 'Development'
     },
     {
@@ -26,7 +26,7 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
       name: 'Bolt.new',
       description: 'AI-powered full-stack development platform for building applications',
       icon: Zap,
-      experience: 'Intermediate',
+      experience: 'Advanced',
       category: 'Full-Stack'
     },
     {
@@ -53,16 +53,44 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
     {
       name: 'GitHub Copilot',
       description: 'AI pair programmer that suggests code and entire functions',
-      icon: Brain,
+      icon: GitBranch,
       experience: 'Expert',
       category: 'Development'
     },
     {
       name: 'ChatGPT',
       description: 'AI assistant for problem-solving, code review, and technical guidance',
-      icon: Lightbulb,
+      icon: MessageSquare,
       experience: 'Expert',
       category: 'General AI'
+    },
+    {
+      name: 'Claude AI',
+      description: 'Advanced AI assistant for complex reasoning and code analysis',
+      icon: Brain,
+      experience: 'Expert',
+      category: 'General AI'
+    },
+    {
+      name: 'Grok',
+      description: 'Real-time AI assistant with up-to-date information and coding capabilities',
+      icon: Lightbulb,
+      experience: 'Intermediate',
+      category: 'General AI'
+    },
+    {
+      name: 'Gemini',
+      description: 'Google\'s multimodal AI for text, code, and image generation',
+      icon: Cpu,
+      experience: 'Advanced',
+      category: 'Multimodal AI'
+    },
+    {
+      name: 'Perplexity',
+      description: 'AI-powered search engine for research and information gathering',
+      icon: Wand2,
+      experience: 'Advanced',
+      category: 'Research'
     }
   ];
 
@@ -79,7 +107,7 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
     <section className={`py-20 relative overflow-hidden ${
       isDarkMode 
         ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-gray-900 via-gray-800 to-black'
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
       {/* Animated background */}
       <div className="absolute inset-0 opacity-5">
@@ -93,12 +121,16 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
               <Brain className="text-[#00BFFF]" size={48} />
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-[#00BFFF] bg-clip-text text-transparent">
+              <h2 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${
+                isDarkMode 
+                  ? 'from-white via-gray-200 to-[#00BFFF]' 
+                  : 'from-gray-900 via-gray-700 to-[#00BFFF]'
+              } bg-clip-text text-transparent`}>
                 AI Tools & <span className="text-[#00BFFF]">Experience</span>
               </h2>
             </div>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 via-[#00BFFF] to-green-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
-            <p className="text-lg max-w-2xl mx-auto text-gray-300">
+            <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               Leveraging cutting-edge AI tools to enhance development workflow and create innovative solutions
             </p>
           </div>
@@ -110,7 +142,11 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
               return (
                 <div
                   key={index}
-                  className="group relative p-6 rounded-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30 backdrop-blur-sm shadow-2xl hover:shadow-[#00BFFF]/20"
+                  className={`group relative p-6 rounded-2xl transition-all duration-500 hover:scale-105 ${
+                    isDarkMode 
+                      ? 'bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30' 
+                      : 'bg-gradient-to-br from-white/90 via-gray-50/90 to-white/90 border border-gray-200/50 hover:border-[#00BFFF]/30'
+                  } backdrop-blur-sm shadow-2xl hover:shadow-[#00BFFF]/20`}
                 >
                   {/* Glow effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00BFFF]/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -129,14 +165,16 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
                     {/* Tool Info */}
                     <div className="space-y-3">
                       <div>
-                        <h3 className="text-lg font-bold text-white group-hover:text-[#00BFFF] transition-colors duration-300">
+                        <h3 className={`text-lg font-bold group-hover:text-[#00BFFF] transition-colors duration-300 ${
+                          isDarkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
                           {tool.name}
                         </h3>
                         <span className="text-xs text-[#00BFFF] bg-[#00BFFF]/10 px-2 py-1 rounded-md">
                           {tool.category}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-300 leading-relaxed">
+                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                         {tool.description}
                       </p>
                     </div>
@@ -147,11 +185,19 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
           </div>
 
           {/* Experience Summary */}
-          <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50 backdrop-blur-sm shadow-2xl">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-[#00BFFF] bg-clip-text text-transparent">
+          <div className={`text-center p-8 rounded-2xl ${
+            isDarkMode 
+              ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
+              : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-200/50'
+          } backdrop-blur-sm shadow-2xl`}>
+            <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${
+              isDarkMode 
+                ? 'from-white to-[#00BFFF]' 
+                : 'from-gray-900 to-[#00BFFF]'
+            } bg-clip-text text-transparent`}>
               AI-Powered Development Approach
             </h3>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+            <p className={`text-lg max-w-3xl mx-auto mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               Integrating artificial intelligence into my development workflow to boost productivity, 
               enhance code quality, and accelerate project delivery while staying at the forefront of technological innovation.
             </p>
