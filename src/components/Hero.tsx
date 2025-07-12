@@ -64,13 +64,10 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           {/* Main Heading */}
           <div className="space-y-6">
             <div className="relative">
-              <h1 className={`text-6xl md:text-8xl font-bold leading-tight tracking-tight ${
+              <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}>
-                <span className="block mb-2">ADITYA PRAKASH</span>
-                <span className="block bg-gradient-to-r from-[#00BFFF] via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  CHAUDHARY
-                </span>
+                ADITYA PRAKASH CHAUDHARY
               </h1>
             </div>
             

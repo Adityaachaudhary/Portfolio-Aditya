@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, ExternalLink, CheckCircle } from 'lucide-react';
+import { Award, ExternalLink, CheckCircle, ArrowLeft, ArrowRight } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -95,7 +95,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {certificates.map((cert, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className={`group relative p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg h-full ${
+                    <div className={`group relative p-8 rounded-xl transition-all duration-300 hover:scale-102 hover:shadow-lg h-full ${
                       isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-50 hover:bg-white shadow-md'
                     }`}>
                       {/* Certificate Icon */}
@@ -179,11 +179,15 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
                 ))}
               </CarouselContent>
               <CarouselPrevious className={`absolute left-2 top-1/2 -translate-y-1/2 ${
-                isDarkMode ? 'bg-gray-800 border-gray-700 hover:bg-gray-700' : 'bg-white border-gray-200 hover:bg-gray-50'
-              }`} />
+                isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
+              }`}>
+                <ArrowLeft className="h-4 w-4" />
+              </CarouselPrevious>
               <CarouselNext className={`absolute right-2 top-1/2 -translate-y-1/2 ${
-                isDarkMode ? 'bg-gray-800 border-gray-700 hover:bg-gray-700' : 'bg-white border-gray-200 hover:bg-gray-50'
-              }`} />
+                isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
+              }`}>
+                <ArrowRight className="h-4 w-4" />
+              </CarouselNext>
             </Carousel>
           </div>
 

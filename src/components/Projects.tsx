@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { ExternalLink, Github, Code, Database, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, Code, Database, ArrowLeft, ArrowRight } from 'lucide-react';
 import TechIcon from './TechIcon';
 import {
   Carousel,
@@ -330,11 +329,15 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                 ))}
               </CarouselContent>
               <CarouselPrevious className={`absolute left-2 top-1/2 -translate-y-1/2 ${
-                isDarkMode ? 'bg-gray-800 border-gray-700 hover:bg-gray-700' : 'bg-white border-gray-200 hover:bg-gray-50'
-              }`} />
+                isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
+              }`}>
+                <ArrowLeft className="h-4 w-4" />
+              </CarouselPrevious>
               <CarouselNext className={`absolute right-2 top-1/2 -translate-y-1/2 ${
-                isDarkMode ? 'bg-gray-800 border-gray-700 hover:bg-gray-700' : 'bg-white border-gray-200 hover:bg-gray-50'
-              }`} />
+                isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
+              }`}>
+                <ArrowRight className="h-4 w-4" />
+              </CarouselNext>
             </Carousel>
           </div>
         </div>

@@ -14,7 +14,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
     languages: {
       title: 'Languages',
       icon: Code,
-      skills: ['Java', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Python']
+      skills: ['Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Python', 'C']
     },
     frameworks: {
       title: 'Frameworks',
@@ -29,7 +29,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
     tools: {
       title: 'Dev Tools',
       icon: Settings,
-      skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform']
+      skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform', 'Figma', 'Postman']
     },
     competency: {
       title: 'Competencies',
@@ -135,31 +135,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             ))}
           </div>
 
-          {/* Skills Summary */}
-          <div className={`mt-16 p-8 rounded-xl ${
-            isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
-          }`}>
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-[#00BFFF] mb-2">15+</div>
-                <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Technologies Mastered
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#00BFFF] mb-2">3</div>
-                <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Years of Learning
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#00BFFF] mb-2">10+</div>
-                <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Projects Completed
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Skills Summary - Remove this section as shown in the image */}
         </div>
       </div>
     </section>
