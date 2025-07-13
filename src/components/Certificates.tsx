@@ -68,7 +68,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
     <section className={`py-20 relative overflow-hidden ${
       isDarkMode 
         ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-gray-900 via-gray-800 to-black'
+        : 'bg-gradient-to-br from-white via-gray-50 to-gray-100'
     }`}>
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
@@ -80,11 +80,17 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-[#00BFFF] bg-clip-text text-transparent">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r ${
+              isDarkMode 
+                ? 'from-white via-gray-200 to-[#00BFFF]' 
+                : 'from-gray-900 via-gray-700 to-[#00BFFF]'
+            } bg-clip-text text-transparent`}>
               Certifications & <span className="text-[#00BFFF]">Achievements</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#00BFFF] to-cyan-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
-            <p className="text-lg max-w-2xl mx-auto text-gray-300">
+            <p className={`text-lg max-w-2xl mx-auto ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               Continuous learning and professional development through industry-recognized certifications
             </p>
           </div>
@@ -101,7 +107,11 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {certificates.map((cert, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="group relative p-8 rounded-2xl transition-all duration-500 hover:scale-[1.02] h-full bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30 backdrop-blur-sm shadow-2xl hover:shadow-[#00BFFF]/20">
+                    <div className={`group relative p-8 rounded-2xl transition-all duration-500 hover:scale-[1.02] h-full ${
+                      isDarkMode 
+                        ? 'bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30' 
+                        : 'bg-gradient-to-br from-white/90 via-gray-50/90 to-gray-100/90 border border-gray-300/50 hover:border-[#00BFFF]/30'
+                    } backdrop-blur-sm shadow-2xl hover:shadow-[#00BFFF]/20`}>
                       {/* Glow effect on hover */}
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00BFFF]/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
@@ -121,31 +131,45 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
                       {/* Certificate Content */}
                       <div className="space-y-4 flex flex-col h-full relative z-10">
                         <div>
-                          <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00BFFF] transition-colors duration-300">
+                          <h3 className={`text-xl font-bold mb-2 ${
+                            isDarkMode ? 'text-white' : 'text-gray-900'
+                          } group-hover:text-[#00BFFF] transition-colors duration-300`}>
                             {cert.title}
                           </h3>
                           <div className="flex items-center justify-between">
                             <p className="text-[#00BFFF] font-medium">{cert.issuer}</p>
-                            <span className="text-sm text-gray-400 bg-gray-800/50 px-2 py-1 rounded-md">
+                            <span className={`text-sm px-2 py-1 rounded-md ${
+                              isDarkMode 
+                                ? 'text-gray-400 bg-gray-800/50' 
+                                : 'text-gray-600 bg-gray-200/50'
+                            }`}>
                               {cert.date}
                             </span>
                           </div>
                         </div>
 
-                        <p className="text-sm leading-relaxed flex-grow text-gray-300">
+                        <p className={`text-sm leading-relaxed flex-grow ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                        }`}>
                           {cert.description}
                         </p>
 
                         {/* Skills */}
                         <div>
-                          <h4 className="text-sm font-semibold mb-2 text-gray-400">
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                            isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                          }`}>
                             SKILLS COVERED
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {cert.skills.map((skill, skillIndex) => (
                               <span
                                 key={skillIndex}
-                                className="px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 hover:from-[#00BFFF]/20 hover:to-purple-600/20 hover:text-white border border-gray-600/50 hover:border-[#00BFFF]/50"
+                                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
+                                  isDarkMode 
+                                    ? 'bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 hover:from-[#00BFFF]/20 hover:to-purple-600/20 hover:text-white border border-gray-600/50 hover:border-[#00BFFF]/50'
+                                    : 'bg-gradient-to-r from-gray-200 to-gray-300 text-gray-700 hover:from-[#00BFFF]/20 hover:to-purple-600/20 hover:text-gray-900 border border-gray-400/50 hover:border-[#00BFFF]/50'
+                                }`}
                               >
                                 {skill}
                               </span>
@@ -178,26 +202,36 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
           </div>
 
           {/* Additional Info */}
-          <div className="p-8 rounded-2xl text-center bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50 backdrop-blur-sm shadow-2xl">
+          <div className={`p-8 rounded-2xl text-center ${
+            isDarkMode 
+              ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
+              : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-300/50'
+          } backdrop-blur-sm shadow-2xl`}>
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-[#00BFFF] bg-clip-text text-transparent">
+              <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${
+                isDarkMode 
+                  ? 'from-white to-[#00BFFF]' 
+                  : 'from-gray-900 to-[#00BFFF]'
+              } bg-clip-text text-transparent`}>
                 Committed to Continuous Learning
               </h3>
-              <p className="text-lg mb-6 text-gray-300">
+              <p className={`text-lg mb-6 ${
+                isDarkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}>
                 Staying current with industry trends and expanding technical expertise through ongoing education and professional development.
               </p>
               <div className="flex justify-center items-center space-x-8">
                 <div className="text-center group">
                   <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">{totalCertificates}</div>
-                  <div className="text-sm text-gray-400">Certifications Earned</div>
+                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Certifications Earned</div>
                 </div>
                 <div className="text-center group">
                   <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">100%</div>
-                  <div className="text-sm text-gray-400">Verified Credentials</div>
+                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Verified Credentials</div>
                 </div>
                 <div className="text-center group">
                   <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">2024</div>
-                  <div className="text-sm text-gray-400">Latest Achievement</div>
+                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Latest Achievement</div>
                 </div>
               </div>
             </div>

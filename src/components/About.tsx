@@ -79,7 +79,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                   </p>
                 </div>
 
-                {/* Resume Details */}
+                {/* Resume Details - Only CGPA and Education */}
                 <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl ${
                   isDarkMode 
                     ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
@@ -91,7 +91,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     </div>
                     <div>
                       <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>CGPA</div>
-                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>8.5/10</div>
+                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>7.63/10</div>
                     </div>
                   </div>
                   
@@ -102,26 +102,6 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     <div>
                       <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Education</div>
                       <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>B.Tech CSE</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
-                      <Award className="text-[#00BFFF]" size={20} />
-                    </div>
-                    <div>
-                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Certifications</div>
-                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>5+ Earned</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20">
-                      <Star className="text-[#00BFFF]" size={20} />
-                    </div>
-                    <div>
-                      <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Experience</div>
-                      <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>2+ Years</div>
                     </div>
                   </div>
                 </div>
