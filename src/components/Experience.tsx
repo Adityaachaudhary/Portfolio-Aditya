@@ -12,30 +12,59 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
 
   const experiences = [
     {
+      id: 'config-cloud',
+      title: 'Web Developer Intern',
+      company: 'Config Cloud',
+      location: 'Hybrid',
+      period: '06/2025 - Present',
+      type: 'Internship',
+      achievements: [
+        {
+          text: 'Converted',
+          highlight: '6+',
+          suffix: 'Figma dashboard pages into modular React (ES6+) components styled with CSS Modules, building a reusable UI component library'
+        },
+        {
+          text: 'Implemented multi-select filters and server-side pagination with REST APIs, cutting redundant API calls by',
+          highlight: '45%',
+          suffix: 'and improving median time-to-first-interaction by ~1.2s'
+        },
+        {
+          text: 'Designed a robust drag-and-drop file uploader with preview, client-side validation, resumable uploads, and progress tracking, integrated with AWS S3 and neo4j'
+        }
+      ],
+      skills: ['React.js', 'CSS Modules', 'Axios', 'REST APIs', 'AWS S3', 'Neo4j']
+    },
+    {
       id: 'jabsz',
       title: 'Web Developer Intern',
       company: 'Jabsz Gaming Studios LLP',
       location: 'Remote',
-      period: '03/2025 - Present',
-      type: 'Full-time',
+      period: '01/2025 - 06/2025',
+      type: 'Internship',
       achievements: [
         {
-          text: 'Designed and integrated an Expense Management module, enabling streamlined reimbursement requests, reducing processing time and enhancing transparency for',
+          text: 'Designed and integrated a complete Expense Management module that allowed employees to submit and track reimbursement requests online, reducing processing time and improving transparency for',
           highlight: '80+',
-          suffix: 'employees'
+          suffix: 'employees using React, REST APIs, and Firebase'
         },
         {
           text: 'Collaborated with a cross-functional team of',
           highlight: '3',
-          suffix: 'to develop a Clock-In/Clock-Out system, improving attendance accuracy and reducing manual tracking efforts'
+          suffix: '(developers + designer + product manager) to build a Clock-In/Clock-Out system with timestamp capture and shift management'
         },
         {
-          text: 'Re-engineered full-scale migration of the ed-tech platform backend from MongoDB to Firebase, rewriting over',
+          text: 'Led the full-scale migration of an ed-tech platform backend from MongoDB to Firebase, rewriting',
           highlight: '20+',
-          suffix: 'RESTful APIs and data models to leverage Firebase\'s real-time database and authentication services'
+          suffix: 'RESTful APIs and refactoring data models for real-time database services'
+        },
+        {
+          text: 'Spearheaded security enhancements by addressing vulnerabilities in localStorage, cookies, and session management, achieving',
+          highlight: '100%',
+          suffix: 'clearance rate of sensitive session data on logout'
         }
       ],
-      skills: ['React.js', 'Node.js', 'Firebase', 'MongoDB', 'REST APIs']
+      skills: ['React.js', 'Firebase', 'MongoDB', 'REST APIs', 'JWT', 'Security']
     },
     {
       id: 'coding-blocks',
