@@ -50,7 +50,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-[#1A1A2E]' : 'bg-gray-50'}`}>
+    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F172A]' : 'bg-gray-50'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

@@ -143,7 +143,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-[#16213E]' : 'bg-white'}`}>
+    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#16213E] via-[#1A1A2E] to-[#0F172A]' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
