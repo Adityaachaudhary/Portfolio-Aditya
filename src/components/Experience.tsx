@@ -114,7 +114,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
     const [displayValue, setDisplayValue] = useState('0');
 
     useEffect(() => {
-      if (!isVisible) return;
+      if (!isVisible || !value) return;
 
       const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
       if (isNaN(numericValue)) {
@@ -222,11 +222,13 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                           isDarkMode ? 'text-gray-300' : 'text-gray-600'
                         }`}>
                           {achievement.text}{' '}
-                          <AnimatedNumber 
-                            value={achievement.highlight} 
-                            isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} 
-                          />
-                          {achievement.suffix && ` ${achievement.suffix}`}
+                           {achievement.highlight && (
+                             <AnimatedNumber 
+                               value={achievement.highlight} 
+                               isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} 
+                             />
+                           )}
+                           {achievement.suffix && ` ${achievement.suffix}`}
                         </p>
                       </div>
                     ))}
