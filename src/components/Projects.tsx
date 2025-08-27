@@ -164,12 +164,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
     }
   ];
 
-  const categories = ['All', 'Full-Stack', 'AI/ML', 'Frontend', 'Backend'];
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  // Show all projects without filtering
 
   return (
     <section className={`py-20 ${isDarkMode ? 'bg-[#1A1A2E]' : 'bg-gray-50'}`}>
@@ -190,24 +185,6 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
             </p>
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-[#00BFFF] text-white shadow-lg'
-                    : isDarkMode
-                    ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
 
           {/* Projects Carousel */}
           <div className="relative">
@@ -219,8 +196,8 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {filteredProjects.map((project, index) => (
-                  <CarouselItem key={project.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {projects.map((project, index) => (
+                  <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                     <div className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full ${
                       isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
                     }`}>

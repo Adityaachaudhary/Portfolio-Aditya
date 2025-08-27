@@ -201,41 +201,6 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
             </Carousel>
           </div>
 
-          {/* Additional Info */}
-          <div className={`p-8 rounded-2xl text-center ${
-            isDarkMode 
-              ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
-              : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-300/50'
-          } backdrop-blur-sm shadow-2xl`}>
-            <div className="max-w-2xl mx-auto">
-              <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${
-                isDarkMode 
-                  ? 'from-white to-[#00BFFF]' 
-                  : 'from-gray-900 to-[#00BFFF]'
-              } bg-clip-text text-transparent`}>
-                Committed to Continuous Learning
-              </h3>
-              <p className={`text-lg mb-6 ${
-                isDarkMode ? 'text-gray-300' : 'text-gray-700'
-              }`}>
-                Staying current with industry trends and expanding technical expertise through ongoing education and professional development.
-              </p>
-              <div className="flex justify-center items-center space-x-8">
-                <div className="text-center group">
-                  <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">{totalCertificates}</div>
-                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Certifications Earned</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">100%</div>
-                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Verified Credentials</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-3xl font-bold text-[#00BFFF] mb-1 group-hover:scale-110 transition-transform duration-300">2024</div>
-                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Latest Achievement</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
