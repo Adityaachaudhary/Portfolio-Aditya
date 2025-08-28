@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Calendar, MapPin, Users, Code, Database } from 'lucide-react';
 import TechIcon from './TechIcon';
@@ -112,12 +111,13 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
 
   const AnimatedNumber: React.FC<{ value: string; isVisible: boolean }> = ({ value, isVisible }) => {
     const [displayValue, setDisplayValue] = useState('0');
+    const numericValue = React.useMemo(() => {
+      const parsedValue = parseInt(value.replace(/[^0-9]/g, ''));
+      return isNaN(parsedValue) ? null : parsedValue;
+    }, [value]);
 
     useEffect(() => {
-      if (!isVisible || !value) return;
-
-      const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
-      if (isNaN(numericValue)) {
+      if (!isVisible || numericValue === null) {
         setDisplayValue(value);
         return;
       }
@@ -137,13 +137,13 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       }, 16);
 
       return () => clearInterval(timer);
-    }, [isVisible, value]);
+    }, [isVisible, numericValue, value]);
 
     return <span className="text-[#00BFFF] font-bold">{displayValue}</span>;
   };
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-[#16213E]' : 'bg-white'}`}>
+    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#16213E] via-[#1A1A2E] to-[#0F172A]' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
