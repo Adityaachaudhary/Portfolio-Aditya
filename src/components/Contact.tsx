@@ -76,16 +76,16 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className={`text-2xl font-bold mb-6 ${
+                <h3 className={`text-xl md:text-2xl font-bold mb-6 ${
                   isDarkMode ? 'text-white' : 'text-gray-900'
                 }`}>
                   Let's Start a Conversation
                 </h3>
-                <p className={`text-lg mb-8 ${
+                <p className={`text-base md:text-lg mb-8 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
                   I'm always excited to discuss new opportunities, interesting projects, or just chat about technology. Feel free to reach out through any of the following channels.
@@ -102,7 +102,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                       href={contact.link}
                       target={contact.link.startsWith('http') ? '_blank' : '_self'}
                       rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                      className={`flex items-center gap-4 p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
+                      className={`flex items-center gap-4 p-4 md:p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
                         isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white hover:bg-gray-50 shadow-md'
                       }`}
                     >
@@ -131,7 +131,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
               </div>
 
               {/* Call to Action */}
-              <div className={`p-6 rounded-xl ${
+              <div className={`p-4 md:p-6 rounded-xl ${
                 isDarkMode ? 'bg-gray-800' : 'bg-white shadow-md'
               }`}>
                 <h4 className={`font-semibold mb-2 ${
@@ -148,11 +148,11 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
             </div>
 
             {/* Contact Form */}
-            <div className={`p-8 rounded-xl ${
+            <div className={`p-4 md:p-8 rounded-xl ${
               isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
             }`}>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                   <div>
                     <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
                       isDarkMode ? 'text-gray-300' : 'text-gray-700'

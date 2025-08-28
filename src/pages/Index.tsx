@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, MessageSquare, Brain } from 'lucide-react';
+import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, MessageSquare, Brain, Menu, X } from 'lucide-react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
@@ -12,6 +12,7 @@ import Contact from '@/components/Contact';
 const Index = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Set initial theme
@@ -58,6 +59,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false); // Close mobile menu after navigation
     }
   };
 
@@ -91,6 +93,7 @@ const Index = () => {
                 Portfolio
               </div>
               
+              {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
                 {navItems.map((item) => (
                   <button
@@ -110,17 +113,61 @@ const Index = () => {
                 ))}
               </div>
 
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors duration-200 ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50' 
-                    : 'hover:bg-gray-100 text-gray-700 border border-gray-300/50 hover:border-[#00BFFF]/50'
-                }`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              {/* Mobile & Theme Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleTheme}
+                  className={`p-2 rounded-lg transition-colors duration-200 ${
+                    isDarkMode 
+                      ? 'hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50' 
+                      : 'hover:bg-gray-100 text-gray-700 border border-gray-300/50 hover:border-[#00BFFF]/50'
+                  }`}
+                >
+                  {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
+                    isDarkMode 
+                      ? 'hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50' 
+                      : 'hover:bg-gray-100 text-gray-700 border border-gray-300/50 hover:border-[#00BFFF]/50'
+                  }`}
+                >
+                  {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
+              </div>
             </div>
+
+            {/* Mobile Navigation Menu */}
+            {isMobileMenuOpen && (
+              <div className={`md:hidden mt-4 py-4 border-t transition-colors duration-300 ${
+                isDarkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}>
+                <div className="grid grid-cols-2 gap-2">
+                  {navItems.map((item) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className={`flex items-center gap-2 p-3 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                          activeSection === item.id 
+                            ? 'bg-[#00BFFF] text-white shadow-lg' 
+                            : isDarkMode 
+                              ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-[#00BFFF]' 
+                              : 'bg-gray-100 text-gray-700 hover:bg-white hover:text-[#00BFFF] hover:shadow-md'
+                        }`}
+                      >
+                        <IconComponent size={16} />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </nav>
         </div>
       </header>

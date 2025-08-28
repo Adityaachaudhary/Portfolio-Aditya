@@ -69,10 +69,10 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base transition-all duration-300 ${
                 activeCategory === 'all'
                   ? 'bg-[#00BFFF] text-white shadow-lg'
                   : isDarkMode
@@ -88,7 +88,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base transition-all duration-300 ${
                     activeCategory === key
                       ? 'bg-[#00BFFF] text-white shadow-lg'
                       : isDarkMode
@@ -104,11 +104,11 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
             {getFilteredSkills().map((skill, index) => (
               <div
                 key={skill}
-                className={`group p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer animate-fade-in ${
+                className={`group p-3 md:p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer animate-fade-in ${
                   isDarkMode 
                     ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
                     : 'bg-white hover:bg-gray-50 text-gray-700 shadow-md'
@@ -116,16 +116,16 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="text-center">
-                  <div className={`w-12 h-12 mx-auto mb-4 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                  <div className={`w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 rounded-lg flex items-center justify-center transition-colors duration-300 ${
                     isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
                   }`}>
                     <TechIcon 
                       name={skill} 
-                      size={24} 
-                      className="transition-opacity duration-300"
+                      size={16} 
+                      className="md:w-6 md:h-6 transition-opacity duration-300"
                     />
                   </div>
-                  <h3 className={`font-semibold text-sm transition-colors duration-300 ${
+                  <h3 className={`font-semibold text-xs md:text-sm transition-colors duration-300 ${
                     isDarkMode ? 'text-white group-hover:text-[#00BFFF]' : 'text-gray-900 group-hover:text-[#00BFFF]'
                   }`}>
                     {skill}

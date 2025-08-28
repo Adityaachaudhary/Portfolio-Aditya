@@ -176,14 +176,14 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                   isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-50 hover:bg-white shadow-md'
                 }`}>
                   {/* Header */}
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                     <div>
-                      <h3 className={`text-2xl font-bold mb-2 ${
+                      <h3 className={`text-xl md:text-2xl font-bold mb-2 ${
                         isDarkMode ? 'text-white' : 'text-gray-900'
                       }`}>
                         {exp.title}
                       </h3>
-                      <div className="flex items-center gap-4 text-[#00BFFF] font-medium">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[#00BFFF] font-medium">
                         <span className="flex items-center gap-1">
                           <Briefcase size={16} />
                           {exp.company}
@@ -194,7 +194,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                         </span>
                       </div>
                     </div>
-                    <div className={`flex items-center gap-2 mt-4 md:mt-0 ${
+                    <div className={`flex flex-col sm:flex-row sm:items-center gap-2 mt-4 lg:mt-0 ${
                       isDarkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                       <Calendar size={16} />
@@ -241,7 +241,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                     }`}>
                       TECHNOLOGIES USED
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1 md:gap-2">
                       {exp.skills.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}

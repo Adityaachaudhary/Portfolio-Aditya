@@ -191,18 +191,18 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {projects.map((project, index) => (
-                  <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                    <div className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-102 hover:shadow-2xl h-[600px] ${
+                  <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                    <div className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-102 hover:shadow-2xl h-[550px] md:h-[600px] ${
                       isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
                     }`}>
                       {/* Gradient Background */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
                       
-                      <div className="relative p-6 h-full flex flex-col">
+                      <div className="relative p-4 md:p-6 h-full flex flex-col">
                         {/* Project Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div>
-                            <h3 className={`text-xl font-bold mb-1 ${
+                            <h3 className={`text-lg md:text-xl font-bold mb-1 ${
                               isDarkMode ? 'text-white' : 'text-gray-900'
                             }`}>
                               {project.title}

@@ -33,12 +33,12 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
             <div className="w-24 h-1 bg-gradient-to-r from-[#00BFFF] to-cyan-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Photo Section - Increased size significantly */}
-            <div className="relative">
-              <div className="relative w-full max-w-2xl mx-auto">
-                {/* Much larger container */}
-                <div className="relative w-[550px] h-[550px] mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Photo Section - Responsive design */}
+            <div className="relative order-1 lg:order-1">
+              <div className="relative w-full max-w-lg mx-auto lg:max-w-2xl">
+                {/* Responsive container */}
+                <div className="relative w-full aspect-square max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
                   <img
                     src={me}
                     alt="Aditya Prakash Chaudhary"
@@ -48,39 +48,39 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
                 
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#00BFFF] to-cyan-400 rounded-full blur-xl opacity-60 animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-xl opacity-40 animate-pulse delay-1000" />
+                {/* Decorative elements - Responsive */}
+                <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-br from-[#00BFFF] to-cyan-400 rounded-full blur-xl opacity-60 animate-pulse" />
+                <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-20 h-20 lg:w-32 lg:h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-xl opacity-40 animate-pulse delay-1000" />
               </div>
             </div>
 
             {/* Content Section */}
-            <div className="space-y-8">
+            <div className="space-y-6 lg:space-y-8 order-2 lg:order-2 text-center lg:text-left">
               <div className="space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-[#00BFFF]">
                     <MapPin size={20} />
                     <span className="text-lg font-medium">Based in India</span>
                   </div>
-                  <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-2xl md:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                     Full Stack Developer & 
                     <span className="bg-gradient-to-r from-[#00BFFF] to-cyan-400 bg-clip-text text-transparent"> Tech Enthusiast</span>
                   </h3>
                 </div>
 
                 <div className={`space-y-4 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  <p className="text-lg">
+                  <p className="text-base md:text-lg">
                     I'm a passionate full-stack developer with expertise in the <span className="text-[#00BFFF] font-semibold">MERN stack</span> and modern web technologies. 
                     I love creating seamless, user-friendly applications that solve real-world problems.
                   </p>
-                  <p>
+                  <p className="text-sm md:text-base">
                     With a strong foundation in both <span className="text-[#00BFFF] font-semibold">frontend</span> and <span className="text-[#00BFFF] font-semibold">backend</span> technologies, 
                     I enjoy the entire development process - from conceptualization and design to deployment and maintenance.
                   </p>
                 </div>
 
                 {/* Resume Details - Only CGPA and Education */}
-                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl ${
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-6 rounded-2xl ${
                   isDarkMode
                     ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50'
                     : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-200/50'
