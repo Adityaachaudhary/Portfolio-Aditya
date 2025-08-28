@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Download, MapPin, Calendar, GraduationCap, Code, Award, BookOpen, Star } from 'lucide-react';
+import me from '@/assets/me.jpg';
 
 interface AboutProps {
   isDarkMode: boolean;
@@ -9,8 +9,8 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ isDarkMode }) => {
   return (
     <section className={`py-20 relative overflow-hidden ${
-      isDarkMode 
-        ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
+      isDarkMode
+        ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800'
         : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
       {/* Animated background elements */}
@@ -24,8 +24,8 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r ${
-              isDarkMode 
-                ? 'from-white via-gray-200 to-[#00BFFF]' 
+              isDarkMode
+                ? 'from-white via-gray-200 to-[#00BFFF]'
                 : 'from-gray-900 via-gray-700 to-[#00BFFF]'
             } bg-clip-text text-transparent`}>
               About <span className="text-[#00BFFF]">Me</span>
@@ -38,9 +38,9 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
             <div className="relative">
               <div className="relative w-full max-w-2xl mx-auto">
                 {/* Much larger container */}
-                <div className="relative w-[500px] h-[500px] mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
+                <div className="relative w-[550px] h-[550px] mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border-2 border-[#00BFFF]/30 shadow-2xl shadow-[#00BFFF]/20">
                   <img
-                    src="/lovable-uploads/1f43db19-f6e6-413f-9c5a-6a33cbe0850d.png"
+                    src={me}
                     alt="Aditya Prakash Chaudhary"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
@@ -81,8 +81,8 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
 
                 {/* Resume Details - Only CGPA and Education */}
                 <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl ${
-                  isDarkMode 
-                    ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50' 
+                  isDarkMode
+                    ? 'bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50'
                     : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-gray-200/50'
                 } backdrop-blur-sm shadow-2xl`}>
                   <div className="flex items-center gap-3">
@@ -104,17 +104,6 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                       <div className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>B.Tech CSE</div>
                     </div>
                   </div>
-                </div>
-
-                {/* Download Resume Button */}
-                <div className="pt-4">
-                  <button className="group relative overflow-hidden rounded-xl py-4 px-8 bg-gradient-to-r from-[#00BFFF] to-cyan-400 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00BFFF]/30">
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative flex items-center gap-3">
-                      <Download size={20} />
-                      Download Resume
-                    </div>
-                  </button>
                 </div>
               </div>
             </div>

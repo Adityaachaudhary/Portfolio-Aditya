@@ -47,13 +47,13 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'Connect with me',
-      link: 'https://linkedin.com/in/aditya-prakash'
+      link: 'https://www.linkedin.com/in/adityachaudhary28/'
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'View my repositories',
-      link: 'https://github.com/aditya-prakash'
+      link: 'https://github.com/Adityaachaudhary'
     }
   ];
 

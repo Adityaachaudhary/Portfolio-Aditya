@@ -173,7 +173,7 @@ const Index = () => {
             </div>
             <div className="flex items-center space-x-4 mt-4 md:mt-0">
               <a
-                href="https://linkedin.com/in/aditya-prakash"
+                href="https://www.linkedin.com/in/adityachaudhary28/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
@@ -185,7 +185,7 @@ const Index = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://github.com/aditya-prakash"
+                href="https://github.com/Adityaachaudhary"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${

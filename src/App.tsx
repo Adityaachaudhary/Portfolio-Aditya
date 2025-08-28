@@ -4,15 +4,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useRef } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
-  const [queryClient] = useState(() => new QueryClient());
+  const queryClientRef = useRef(new QueryClient());
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClientRef.current}>
       <Toaster />
       <Sonner />
       <BrowserRouter>

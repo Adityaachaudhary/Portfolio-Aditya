@@ -20,7 +20,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       id: 'blogify',
       title: 'BlogiFy',
       subtitle: 'Full-Stack Blogging Platform',
-      description: 'A comprehensive blogging platform with user authentication, content management, and responsive design.',
+      description: 'A comprehensive blogging platform with user authentication, content management, and responsive design. User can post about his/her ideas with help of photos',
       technologies: ['React.js', 'Node.js', 'Express.js', 'Firebase', 'JWT', 'Tailwind CSS'],
       features: [
         'User authentication and authorization',
@@ -29,8 +29,8 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
         'Real-time comments and interactions',
         'User profile management'
       ],
-      liveDemo: '#',
-      github: '#',
+      
+      github: 'https://github.com/Adityaachaudhary/mern-blogg-project',
       category: 'Full-Stack',
       color: 'from-blue-500 to-cyan-500'
     },
@@ -38,26 +38,25 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       id: 'strengthmax',
       title: 'StrengthMax',
       subtitle: 'Fitness Tracking & Planning',
-      description: 'Comprehensive fitness application for tracking workouts and creating personalized exercise plans.',
-      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
+      description: 'Comprehensive fitness application for tracking workouts and creating personalized exercise plans. User can track their workout here',
+      technologies: ['React.js', 'Redux Store'],
       features: [
         'Personalized workout plans',
         'Exercise tracking and analytics',
-        'Progress visualization',
         'Exercise database with instructions',
         'User goal setting and achievements'
       ],
-      liveDemo: '#',
-      github: '#',
-      category: 'Full-Stack',
+      liveDemo: 'https://strength-max.vercel.app/',
+      github: 'https://github.com/Adityaachaudhary/Strength_Max',
+      category: 'React-based Single page application',
       color: 'from-green-500 to-emerald-500'
     },
     {
       id: 'college-job-board',
       title: 'College Job Board',
       subtitle: 'Campus Employment Platform',
-      description: 'A platform connecting students with campus job opportunities. Employers post roles, students browse and apply easily.',
-      technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Tailwind CSS'],
+      description: 'A platform connecting students with campus job opportunities. Employers post roles, students browse and apply easily.A bridge between campuses, companies and students',
+      technologies: ['React.js', 'TypeScript','JWT', 'Tailwind CSS'],
       features: [
         'Student and employer registration',
         'Job posting and application system',
@@ -66,8 +65,8 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
         'Campus-specific job filtering'
       ],
       liveDemo: 'https://college-job-board.vercel.app',
-      github: '#',
-      category: 'Full-Stack',
+      github: 'https://github.com/Adityaachaudhary/college-job-board',
+      category: 'Frontend Project',
       color: 'from-indigo-500 to-purple-500'
     },
     {
@@ -75,17 +74,16 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       title: 'FinFlow Visual Budgets',
       subtitle: 'Dynamic Expense Tracking',
       description: 'A dynamic expense-tracking dashboard that visualizes spending and budgets through engaging charts.',
-      technologies: ['React.js', 'Chart.js', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+      technologies: ['React.js', 'TypeScript','Chart.js', 'Tailwind CSS'],
       features: [
         'Visual spending analytics with charts',
         'Budget creation and tracking',
         'Expense categorization',
         'Financial insights and reports',
-        'Multi-currency support'
       ],
       liveDemo: 'https://finflow-visual-budgets.vercel.app',
-      github: '#',
-      category: 'Full-Stack',
+      github: 'https://github.com/Adityaachaudhary/finflow-visual-budgets',
+      category: 'Frontend Project',
       color: 'from-emerald-500 to-teal-500'
     },
     // AI/ML Projects
@@ -93,7 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       id: 'freescribe',
       title: 'FreeScribe',
       subtitle: 'AI-Powered Voice Transcription',
-      description: 'Advanced voice-to-text application using OpenAI models with high accuracy and browser compatibility.',
+      description: 'Advanced voice-to-text application using OpenAI models with high accuracy and browser compatibility. your dialogues can be transcribed and translated into any other language of choice',
       technologies: ['JavaScript', 'OpenAI API', 'Bootstrap', 'HTML', 'CSS'],
       features: [
         'Real-time voice transcription',
@@ -102,8 +100,8 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
         'Cross-browser compatibility',
         'Export transcriptions to multiple formats'
       ],
-      liveDemo: '#',
-      github: '#',
+      liveDemo: 'https://scribe-free.vercel.app/',
+      github: 'https://github.com/Adityaachaudhary/scribeFree',
       category: 'AI/ML',
       color: 'from-purple-500 to-pink-500'
     },
@@ -111,37 +109,33 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       id: 'aura-bookmark-nexus',
       title: 'Aura Bookmark Nexus',
       subtitle: 'AI-Driven Bookmarking Tool',
-      description: 'An AI-driven bookmarking tool that saves web links and auto-generates concise summaries of each page.',
-      technologies: ['React.js', 'OpenAI API', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+      description: 'An AI-driven bookmarking tool that saves web links and auto-generates concise summaries of each page. This helps users quickly revisit and understand saved resources without reading the entire page again.',
+      technologies: ['React.js', 'TypeScript','OpenAI API', 'Tailwind CSS'],
       features: [
         'AI-powered content summarization',
         'Smart bookmark organization',
         'Quick content retrieval',
-        'Tag-based categorization',
-        'Cross-device synchronization'
       ],
       liveDemo: 'https://aura-bookmark-nexus.vercel.app',
-      github: '#',
-      category: 'AI/ML',
+      github: 'https://github.com/Adityaachaudhary/aura-bookmark-nexus',
+      category: 'React based single page application',
       color: 'from-violet-500 to-purple-500'
     },
-    // Frontend Projects
+
     {
       id: 'quick-note-stash',
       title: 'Quick Note Stash',
       subtitle: 'Minimalist Note-Taking App',
-      description: 'A minimalist, lightning-fast note-taking app focused on frictionless capture and instant retrieval.',
+      description: 'A minimalist, lightning-fast note-taking app focused on frictionless capture and instant retrieval. It is note-taking application that enables users to quickly jot down, organize, and access their thoughts or ideas. Designed for simplicity and speed.',
       technologies: ['React.js', 'TypeScript', 'Local Storage', 'Tailwind CSS', 'Vite'],
       features: [
         'Lightning-fast note capture',
         'Instant search and retrieval',
         'Minimalist, distraction-free UI',
-        'Offline functionality',
-        'Keyboard shortcuts for efficiency'
       ],
       liveDemo: 'https://quick-note-stash-app.vercel.app',
-      github: '#',
-      category: 'Frontend',
+      github: 'https://github.com/Adityaachaudhary/quick-note-stash-app',
+      category: 'Frontend Project',
       color: 'from-amber-500 to-orange-500'
     },
     {
@@ -149,7 +143,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       title: 'Pin-Board',
       subtitle: 'Pinterest-Inspired Image Sharing',
       description: 'A frontend image-sharing app inspired by Pinterest, built with mock APIs for browsing and organizing visual content.',
-      technologies: ['React.js', 'JavaScript', 'CSS3', 'Mock APIs', 'Responsive Design'],
+      technologies: ['React.js', 'TypeScript', 'CSS3', 'Mock APIs', 'Responsive Design'],
       features: [
         'Pinterest-like grid layout',
         'Image browsing and saving',
@@ -158,13 +152,13 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
         'Clean, intuitive user interface'
       ],
       liveDemo: 'https://pin-board-three.vercel.app',
-      github: '#',
-      category: 'Frontend',
+      github: 'https://github.com/Adityaachaudhary/Pin-Board',
+      category: 'Frontend Project',
       color: 'from-pink-500 to-rose-500'
     }
   ];
 
-  // Show all projects without filtering
+
 
   return (
     <section className={`py-20 ${isDarkMode ? 'bg-[#1A1A2E]' : 'bg-gray-50'}`}>
@@ -198,7 +192,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {projects.map((project, index) => (
                   <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                    <div className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full ${
+                    <div className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-102 hover:shadow-2xl h-[600px] ${
                       isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
                     }`}>
                       {/* Gradient Background */}
@@ -223,7 +217,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                         </div>
 
                         {/* Description */}
-                        <p className={`text-sm mb-6 line-clamp-3 flex-grow ${
+                        <p className={`text-sm mb-6 flex-grow ${
                           isDarkMode ? 'text-gray-300' : 'text-gray-600'
                         }`}>
                           {project.description}
@@ -268,7 +262,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                           <ul className={`text-sm space-y-1 ${
                             isDarkMode ? 'text-gray-300' : 'text-gray-600'
                           }`}>
-                            {project.features.slice(0, 2).map((feature, idx) => (
+                            {project.features.map((feature, idx) => (
                               <li key={idx} className="flex items-start gap-2">
                                 <div className="w-1 h-1 bg-[#00BFFF] rounded-full mt-2 flex-shrink-0" />
                                 {feature}

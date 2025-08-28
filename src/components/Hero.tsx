@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
               <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r ${
                 isDarkMode 
                   ? 'from-white via-gray-200 to-[#00BFFF]' 
-                  : 'from-gray-900 via-gray-700 to-[#00BFFF]'
+                  : 'from-gray-900 via-gray-700 to-[#00BFFF]'}
               } bg-clip-text text-transparent`}>
                 ADITYA PRAKASH CHAUDHARY
               </h1>
@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           {/* Tagline */}
           <div className="relative">
             <p className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light ${
-              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'}
             }`}>
               Crafting <span className="text-[#00BFFF] font-semibold">seamless digital experiences</span> with 
               <br className="hidden md:block" />
@@ -107,22 +107,14 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
                 View Projects
               </span>
             </button>
-            
-            <button className="group relative overflow-hidden px-10 py-4 rounded-xl font-semibold transition-all duration-300 border-2 border-[#00BFFF] text-[#00BFFF] hover:text-white hover:scale-105 hover:shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00BFFF] to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-2">
-                <Download size={20} />
-                Download Resume
-              </span>
-            </button>
           </div>
 
           {/* Social Links */}
           <div className="flex justify-center items-center space-x-8 pt-8">
             {[
-              { icon: Linkedin, href: "https://linkedin.com/in/aditya-prakash", label: "LinkedIn" },
-              { icon: Github, href: "https://github.com/aditya-prakash", label: "GitHub" },
-              { icon: Code, href: "https://leetcode.com/aditya-prakash", label: "LeetCode" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/adityachaudhary28/", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/Adityaachaudhary", label: "GitHub" },
+              { icon: Code, href: "https://leetcode.com/u/aditya_28/", label: "LeetCode" },
               { icon: Mail, href: "mailto:adityaprakash.280102@gmail.com", label: "Email" }
             ].map(({ icon: Icon, href, label }) => (
               <a
@@ -133,7 +125,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
                 className={`group p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl border ${
                   isDarkMode 
                     ? 'border-gray-600/50 bg-gray-900/50 text-gray-300' 
-                    : 'border-gray-300/50 bg-white/50 text-gray-700'
+                    : 'border-gray-300/50 bg-white/50 text-gray-700'}
                 } hover:bg-gradient-to-br hover:from-[#00BFFF] hover:to-cyan-400 hover:text-white hover:border-[#00BFFF] backdrop-blur-sm shadow-lg`}
                 title={label}
               >
@@ -148,15 +140,15 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
       <button
         onClick={scrollToNext}
         className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 hover:scale-110 ${
-          isDarkMode ? 'text-gray-400 hover:text-[#00BFFF]' : 'text-gray-600 hover:text-[#00BFFF]'
+          isDarkMode ? 'text-gray-400 hover:text-[#00BFFF]' : 'text-gray-600 hover:text-[#00BFFF]'}
         }`}
       >
         <div className="flex flex-col items-center gap-2">
           <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-300 ${
-            isDarkMode ? 'border-gray-400 hover:border-[#00BFFF]' : 'border-gray-600 hover:border-[#00BFFF]'
+            isDarkMode ? 'border-gray-400 hover:border-[#00BFFF]' : 'border-gray-600 hover:border-[#00BFFF]'}
           }`}>
             <div className={`w-1 h-3 rounded-full mt-2 animate-bounce ${
-              isDarkMode ? 'bg-gray-400' : 'bg-gray-600'
+              isDarkMode ? 'bg-gray-400' : 'bg-gray-600'}
             }`} />
           </div>
           <ChevronDown size={24} className="animate-pulse" />
