@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, MessageSquare, Brain, Menu, X } from 'lucide-react';
+import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, Brain, Menu, X } from 'lucide-react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
@@ -7,7 +7,6 @@ import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
 import AITools from '@/components/AITools';
-import Contact from '@/components/Contact';
 
 const Index = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -25,7 +24,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -71,7 +70,6 @@ const Index = () => {
     { id: 'projects', label: 'Projects', icon: FolderOpen },
     { id: 'certificates', label: 'Certificates', icon: Award },
     { id: 'ai-tools', label: 'AI Tools', icon: Brain },
-    { id: 'contact', label: 'Contact', icon: MessageSquare },
   ];
 
   return (
@@ -200,10 +198,6 @@ const Index = () => {
 
         <section id="ai-tools">
           <AITools isDarkMode={isDarkMode} />
-        </section>
-
-        <section id="contact">
-          <Contact isDarkMode={isDarkMode} />
         </section>
       </main>
 
