@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, Brain, Menu, X } from 'lucide-react';
-import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
@@ -24,7 +23,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools'];
+      const sections = ['about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -63,7 +62,6 @@ const Index = () => {
   };
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: User },
     { id: 'about', label: 'About', icon: User },
     { id: 'skills', label: 'Skills', icon: Code },
     { id: 'experience', label: 'Experience', icon: Briefcase },
@@ -172,10 +170,6 @@ const Index = () => {
 
       {/* Main Content */}
       <main>
-        <section id="home">
-          <Hero isDarkMode={isDarkMode} />
-        </section>
-
         <section id="about">
           <About isDarkMode={isDarkMode} />
         </section>

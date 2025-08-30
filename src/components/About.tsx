@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, MapPin, Calendar, GraduationCap, Code, Award, BookOpen, Star } from 'lucide-react';
+import { Download, MapPin, Calendar, GraduationCap, Code, Award, BookOpen, Star, Github, Linkedin, Mail, FolderOpen } from 'lucide-react';
 import me from '@/assets/me.jpg';
 
 interface AboutProps {
@@ -8,7 +8,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ isDarkMode }) => {
   return (
-    <section className={`py-20 relative overflow-hidden ${
+    <section className={`min-h-screen flex items-center justify-center py-20 relative overflow-hidden ${
       isDarkMode
         ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800'
         : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
@@ -21,9 +21,25 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
+          {/* Main Name Header */}
+          <div className="text-center mb-12">
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r ${
+              isDarkMode 
+                ? 'from-white via-gray-200 to-[#00BFFF]' 
+                : 'from-gray-900 via-gray-700 to-[#00BFFF]'}
+            } bg-clip-text text-transparent mb-4`}>
+              ADITYA PRAKASH CHAUDHARY
+            </h1>
+            <p className={`text-xl md:text-2xl font-medium ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              Full Stack Developer & Tech Enthusiast
+            </p>
+          </div>
+
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r ${
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r ${
               isDarkMode
                 ? 'from-white via-gray-200 to-[#00BFFF]'
                 : 'from-gray-900 via-gray-700 to-[#00BFFF]'
@@ -107,6 +123,45 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex justify-center mt-12 mb-12">
+            <button
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group relative overflow-hidden px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-[#00BFFF] to-cyan-400 text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00BFFF]/30"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative flex items-center gap-2 text-sm md:text-base">
+                <FolderOpen size={18} />
+                View Projects
+              </span>
+            </button>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center items-center space-x-6 md:space-x-8">
+            {[
+              { icon: Linkedin, href: "https://www.linkedin.com/in/adityachaudhary28/", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/Adityaachaudhary", label: "GitHub" },
+              { icon: Code, href: "https://leetcode.com/u/aditya_28/", label: "LeetCode" },
+              { icon: Mail, href: "mailto:adityaprakash.280102@gmail.com", label: "Email" }
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('mailto:') ? undefined : "_blank"}
+                rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
+                className={`group p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl border ${
+                  isDarkMode 
+                    ? 'border-gray-600/50 bg-gray-900/50 text-gray-300' 
+                    : 'border-gray-300/50 bg-white/50 text-gray-700'}
+                } hover:bg-gradient-to-br hover:from-[#00BFFF] hover:to-cyan-400 hover:text-white hover:border-[#00BFFF] backdrop-blur-sm shadow-lg`}
+                title={label}
+              >
+                <Icon size={20} className="md:w-6 md:h-6 transition-transform duration-300 group-hover:rotate-12" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
