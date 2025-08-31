@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, MapPin, Calendar, GraduationCap, Code, Award, BookOpen, Star, Github, Linkedin, Mail, FolderOpen } from 'lucide-react';
 import me from '@/assets/me.jpg';
 
@@ -7,6 +7,41 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ isDarkMode }) => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const jobTitles = [
+    'React Developer',
+    'Frontend Developer', 
+    'Full Stack Developer',
+    'Web Developer'
+  ];
+
+  useEffect(() => {
+    const typingSpeed = isDeleting ? 50 : 100;
+    const currentTitle = jobTitles[currentIndex];
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setCurrentText(currentTitle.substring(0, currentText.length + 1));
+        
+        if (currentText === currentTitle) {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      } else {
+        setCurrentText(currentTitle.substring(0, currentText.length - 1));
+        
+        if (currentText === '') {
+          setIsDeleting(false);
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % jobTitles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, currentIndex, isDeleting, jobTitles]);
+
   return (
     <section className={`min-h-screen flex items-center justify-center py-20 relative overflow-hidden ${
       isDarkMode
@@ -22,23 +57,26 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Main Name Header */}
-          <div className="text-center mb-12">
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r ${
+          <div className="text-center mb-16">
+            <h1 className={`text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight bg-gradient-to-r ${
               isDarkMode 
                 ? 'from-white via-gray-200 to-[#00BFFF]' 
                 : 'from-gray-900 via-gray-700 to-[#00BFFF]'}
-            } bg-clip-text text-transparent mb-4`}>
+            } bg-clip-text text-transparent mb-6`}>
               ADITYA PRAKASH CHAUDHARY
             </h1>
-            <p className={`text-xl md:text-2xl font-medium ${
+            <div className={`text-lg md:text-xl lg:text-2xl font-medium h-8 ${
               isDarkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              Full Stack Developer & Tech Enthusiast
-            </p>
+              <span className="bg-gradient-to-r from-[#00BFFF] to-cyan-400 bg-clip-text text-transparent">
+                {currentText}
+                <span className="animate-pulse">|</span>
+              </span>
+            </div>
           </div>
 
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r ${
               isDarkMode
                 ? 'from-white via-gray-200 to-[#00BFFF]'
