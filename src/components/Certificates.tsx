@@ -88,11 +88,6 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               Certifications & <span className="text-[#00BFFF]">Achievements</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#00BFFF] to-cyan-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
-            <p className={`text-lg max-w-2xl mx-auto ${
-              isDarkMode ? 'text-gray-300' : 'text-gray-700'
-            }`}>
-              Continuous learning and professional development through industry-recognized certifications
-            </p>
           </div>
 
           {/* Certificates Carousel */}
@@ -107,7 +102,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {certificates.map((cert, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className={`group relative p-8 rounded-2xl transition-all duration-500 hover:scale-[1.02] h-full ${
+                    <div className={`group relative p-6 rounded-2xl transition-all duration-500 hover:scale-[1.02] h-96 ${
                       isDarkMode 
                         ? 'bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30' 
                         : 'bg-gradient-to-br from-white/90 via-gray-50/90 to-gray-100/90 border border-gray-300/50 hover:border-[#00BFFF]/30'
