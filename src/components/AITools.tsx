@@ -152,31 +152,23 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00BFFF]/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    {/* Tool Icon and Experience Badge */}
-                    <div className="flex items-start justify-between mb-4">
+                    {/* Tool Icon */}
+                    <div className="flex items-start justify-center mb-4">
                       <div className="p-3 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border border-[#00BFFF]/30 group-hover:scale-110 transition-transform duration-300">
                         <IconComponent className="text-[#00BFFF]" size={24} />
                       </div>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getExperienceColor(tool.experience)} text-white shadow-lg`}>
-                        {tool.experience}
-                      </span>
                     </div>
 
                     {/* Tool Info */}
-                    <div className="space-y-3">
-                      <div>
-                        <h3 className={`text-lg font-bold group-hover:text-[#00BFFF] transition-colors duration-300 ${
-                          isDarkMode ? 'text-white' : 'text-gray-900'
-                        }`}>
-                          {tool.name}
-                        </h3>
-                        <span className="text-xs text-[#00BFFF] bg-[#00BFFF]/10 px-2 py-1 rounded-md">
-                          {tool.category}
-                        </span>
-                      </div>
-                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                        {tool.description}
-                      </p>
+                    <div className="text-center">
+                      <h3 className={`text-lg font-bold group-hover:text-[#00BFFF] transition-colors duration-300 mb-2 ${
+                        isDarkMode ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        {tool.name}
+                      </h3>
+                      <span className="text-xs text-[#00BFFF] bg-[#00BFFF]/10 px-2 py-1 rounded-md">
+                        {tool.category}
+                      </span>
                     </div>
                   </div>
                 </div>
