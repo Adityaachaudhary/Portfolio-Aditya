@@ -299,12 +299,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className={`absolute left-2 top-1/2 -translate-y-1/2 ${
+              <CarouselPrevious className={`absolute -left-4 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 z-10 ${
                 isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
               }`}>
                 <ArrowLeft className="h-4 w-4" />
               </CarouselPrevious>
-              <CarouselNext className={`absolute right-2 top-1/2 -translate-y-1/2 ${
+              <CarouselNext className={`absolute -right-4 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 z-10 ${
                 isDarkMode ? 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white' : 'bg-[#00BFFF] border-[#00BFFF] hover:bg-blue-500 text-white'
               }`}>
                 <ArrowRight className="h-4 w-4" />

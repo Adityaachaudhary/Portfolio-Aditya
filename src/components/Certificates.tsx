@@ -187,10 +187,10 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00BFFF] to-cyan-400 border-none hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-[#00BFFF]/50 transition-all duration-300">
+              <CarouselPrevious className="absolute -left-4 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00BFFF] to-cyan-400 border-none hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-[#00BFFF]/50 transition-all duration-300 z-10">
                 <ArrowLeft className="h-4 w-4" />
               </CarouselPrevious>
-              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00BFFF] to-cyan-400 border-none hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-[#00BFFF]/50 transition-all duration-300">
+              <CarouselNext className="absolute -right-4 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00BFFF] to-cyan-400 border-none hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-[#00BFFF]/50 transition-all duration-300 z-10">
                 <ArrowRight className="h-4 w-4" />
               </CarouselNext>
             </Carousel>
