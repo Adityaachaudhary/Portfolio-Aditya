@@ -130,9 +130,6 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
               </h2>
             </div>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 via-[#00BFFF] to-green-400 mx-auto rounded-full mb-8 shadow-lg shadow-[#00BFFF]/50" />
-            <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              Leveraging cutting-edge AI tools to enhance development workflow and create innovative solutions
-            </p>
           </div>
 
           {/* AI Tools Grid */}
@@ -142,26 +139,26 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
               return (
                 <div
                   key={index}
-                  className={`group relative p-6 rounded-2xl transition-all duration-500 hover:scale-105 ${
+                  className={`group relative p-4 rounded-xl transition-all duration-500 hover:scale-105 ${
                     isDarkMode 
                       ? 'bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-black/90 border border-gray-700/50 hover:border-[#00BFFF]/30' 
                       : 'bg-gradient-to-br from-white/90 via-gray-50/90 to-white/90 border border-gray-200/50 hover:border-[#00BFFF]/30'
-                  } backdrop-blur-sm shadow-2xl hover:shadow-[#00BFFF]/20`}
+                  } backdrop-blur-sm shadow-lg hover:shadow-[#00BFFF]/20`}
                 >
                   {/* Glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00BFFF]/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#00BFFF]/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
                     {/* Tool Icon */}
-                    <div className="flex items-start justify-center mb-4">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border border-[#00BFFF]/30 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="text-[#00BFFF]" size={24} />
+                    <div className="flex items-start justify-center mb-3">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-[#00BFFF]/20 to-purple-600/20 border border-[#00BFFF]/30 group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="text-[#00BFFF]" size={20} />
                       </div>
                     </div>
 
                     {/* Tool Info */}
                     <div className="text-center">
-                      <h3 className={`text-lg font-bold group-hover:text-[#00BFFF] transition-colors duration-300 mb-2 ${
+                      <h3 className={`text-base font-bold group-hover:text-[#00BFFF] transition-colors duration-300 mb-1 ${
                         isDarkMode ? 'text-white' : 'text-gray-900'
                       }`}>
                         {tool.name}

@@ -116,13 +116,13 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="text-center">
-                  <div className={`w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                  <div className={`w-6 h-6 md:w-8 md:h-8 mx-auto mb-2 md:mb-3 rounded-lg flex items-center justify-center transition-colors duration-300 ${
                     isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
                   }`}>
                     <TechIcon 
                       name={skill} 
-                      size={16} 
-                      className="md:w-6 md:h-6 transition-opacity duration-300"
+                      size={12} 
+                      className="md:w-4 md:h-4 transition-opacity duration-300"
                     />
                   </div>
                   <h3 className={`font-semibold text-xs md:text-sm transition-colors duration-300 ${
