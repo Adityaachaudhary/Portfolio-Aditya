@@ -108,7 +108,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             {getFilteredSkills().map((skill, index) => (
               <div
                 key={skill}
-                className={`group p-3 md:p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer animate-fade-in ${
+                className={`group p-2 md:p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer animate-fade-in ${
                   isDarkMode 
                     ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
                     : 'bg-white hover:bg-gray-50 text-gray-700 shadow-md'
@@ -116,12 +116,12 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="text-center">
-                  <div className={`w-6 h-6 md:w-8 md:h-8 mx-auto mb-2 md:mb-3 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                  <div className={`w-5 h-5 md:w-7 md:h-7 mx-auto mb-1 md:mb-2 rounded-lg flex items-center justify-center transition-colors duration-300 ${
                     isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
                   }`}>
                     <TechIcon 
                       name={skill} 
-                      size={12} 
+                      size={10} 
                       className="md:w-4 md:h-4 transition-opacity duration-300"
                     />
                   </div>
