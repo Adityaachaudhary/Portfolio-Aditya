@@ -49,6 +49,12 @@ const TechIcon: React.FC<TechIconProps> = ({ name, size = 24, className = "" }) 
       'REST APIs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
       'Machine Learning': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Data Science': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Neo4j': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg',
+      'Three.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg',
+      'JSON': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg',
+      'Cursor': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cursor/cursor-original.svg',
+      '3D Rendering': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg',
+      'Antigravity': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
     };
 
     return iconMap[techName] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
