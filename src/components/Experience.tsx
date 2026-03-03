@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Briefcase, Calendar, MapPin, Users, Code, Database } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import TechIcon from './TechIcon';
 
 interface ExperienceProps {
@@ -18,19 +18,9 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       period: '06/2025 - Present',
       type: 'Internship',
       achievements: [
-        {
-          text: 'Converted',
-          highlight: '6+',
-          suffix: 'Figma dashboard pages into modular React (ES6+) components styled with CSS Modules, building a reusable UI component library'
-        },
-        {
-          text: 'Implemented multi-select filters and server-side pagination with REST APIs, cutting redundant API calls by',
-          highlight: '45%',
-          suffix: 'and improving median time-to-first-interaction by ~1.2s'
-        },
-        {
-          text: 'Designed a robust drag-and-drop file uploader with preview, client-side validation, resumable uploads, and progress tracking, integrated with AWS S3 and neo4j'
-        }
+        { text: 'Converted', highlight: '6+', suffix: 'Figma dashboard pages into modular React (ES6+) components styled with CSS Modules, building a reusable UI component library' },
+        { text: 'Implemented multi-select filters and server-side pagination with REST APIs, cutting redundant API calls by', highlight: '45%', suffix: 'and improving median time-to-first-interaction by ~1.2s' },
+        { text: 'Designed a robust drag-and-drop file uploader with preview, client-side validation, resumable uploads, and progress tracking, integrated with AWS S3 and neo4j' }
       ],
       skills: ['React.js', 'CSS Modules', 'Axios', 'REST APIs', 'AWS S3', 'Neo4j']
     },
@@ -42,26 +32,10 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       period: '01/2025 - 06/2025',
       type: 'Internship',
       achievements: [
-        {
-          text: 'Designed and integrated a complete Expense Management module that allowed employees to submit and track reimbursement requests online, reducing processing time and improving transparency for',
-          highlight: '80+',
-          suffix: 'employees using React, REST APIs, and Firebase'
-        },
-        {
-          text: 'Collaborated with a cross-functional team of',
-          highlight: '3',
-          suffix: '(developers + designer + product manager) to build a Clock-In/Clock-Out system with timestamp capture and shift management'
-        },
-        {
-          text: 'Led the full-scale migration of an ed-tech platform backend from MongoDB to Firebase, rewriting',
-          highlight: '20+',
-          suffix: 'RESTful APIs and refactoring data models for real-time database services'
-        },
-        {
-          text: 'Spearheaded security enhancements by addressing vulnerabilities in localStorage, cookies, and session management, achieving',
-          highlight: '100%',
-          suffix: 'clearance rate of sensitive session data on logout'
-        }
+        { text: 'Designed and integrated a complete Expense Management module that allowed employees to submit and track reimbursement requests online, reducing processing time and improving transparency for', highlight: '80+', suffix: 'employees using React, REST APIs, and Firebase' },
+        { text: 'Collaborated with a cross-functional team of', highlight: '3', suffix: '(developers + designer + product manager) to build a Clock-In/Clock-Out system with timestamp capture and shift management' },
+        { text: 'Led the full-scale migration of an ed-tech platform backend from MongoDB to Firebase, rewriting', highlight: '20+', suffix: 'RESTful APIs and refactoring data models for real-time database services' },
+        { text: 'Spearheaded security enhancements by addressing vulnerabilities in localStorage, cookies, and session management, achieving', highlight: '100%', suffix: 'clearance rate of sensitive session data on logout' }
       ],
       skills: ['React.js', 'Firebase', 'MongoDB', 'REST APIs', 'JWT', 'Security']
     },
@@ -73,16 +47,8 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       period: '06/2024 - 07/2024',
       type: 'Training',
       achievements: [
-        {
-          text: 'Acquired foundational machine learning and data science knowledge, focusing on more than',
-          highlight: '5',
-          suffix: 'supervised and unsupervised algorithms'
-        },
-        {
-          text: 'Developed introductory skills in applying basic machine learning algorithms on',
-          highlight: '10+',
-          suffix: 'sample datasets, focusing on data preparation and model implementation'
-        }
+        { text: 'Acquired foundational machine learning and data science knowledge, focusing on more than', highlight: '5', suffix: 'supervised and unsupervised algorithms' },
+        { text: 'Developed introductory skills in applying basic machine learning algorithms on', highlight: '10+', suffix: 'sample datasets, focusing on data preparation and model implementation' }
       ],
       skills: ['Python', 'Machine Learning', 'Data Science']
     }
@@ -91,7 +57,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   useEffect(() => {
     const handleScroll = () => {
       experiences.forEach(exp => {
-        exp.achievements.forEach((achievement, index) => {
+        exp.achievements.forEach((_, index) => {
           const element = document.getElementById(`${exp.id}-stat-${index}`);
           if (element) {
             const rect = element.getBoundingClientRect();
@@ -103,132 +69,94 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
         });
       });
     };
-
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial visibility
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [visibleStats]);
 
   const AnimatedNumber: React.FC<{ value: string; isVisible: boolean }> = ({ value, isVisible }) => {
     const [displayValue, setDisplayValue] = useState('0');
     const numericValue = React.useMemo(() => {
-      const parsedValue = parseInt(value.replace(/[^0-9]/g, ''));
-      return isNaN(parsedValue) ? null : parsedValue;
+      const parsed = parseInt(value.replace(/[^0-9]/g, ''));
+      return isNaN(parsed) ? null : parsed;
     }, [value]);
 
     useEffect(() => {
-      if (!isVisible || numericValue === null) {
-        setDisplayValue(value);
-        return;
-      }
-
+      if (!isVisible || numericValue === null) { setDisplayValue(value); return; }
       let start = 0;
       const duration = 2000;
       const increment = numericValue / (duration / 16);
-
       const timer = setInterval(() => {
         start += increment;
-        if (start >= numericValue) {
-          setDisplayValue(value);
-          clearInterval(timer);
-        } else {
-          setDisplayValue(Math.floor(start) + value.replace(/[0-9]/g, ''));
-        }
+        if (start >= numericValue) { setDisplayValue(value); clearInterval(timer); }
+        else { setDisplayValue(Math.floor(start) + value.replace(/[0-9]/g, '')); }
       }, 16);
-
       return () => clearInterval(timer);
     }, [isVisible, numericValue, value]);
 
-    return <span className="text-[#00BFFF] font-bold">{displayValue}</span>;
+    return <span className="text-primary font-bold">{displayValue}</span>;
   };
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#16213E] via-[#1A1A2E] to-[#0F172A]' : 'bg-white'}`}>
-      <div className="container mx-auto px-6">
+    <section className="py-20 relative overflow-hidden section-gradient-dark">
+      <div className="absolute inset-0 gradient-mesh" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              Work <span className="text-[#00BFFF]">Experience</span>
+          {/* Header */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Work <span className="text-primary">Experience</span>
             </h2>
-            <div className="w-24 h-1 bg-[#00BFFF] mx-auto rounded-full mb-8" />
-            <p className={`text-lg max-w-2xl mx-auto ${
-              isDarkMode ? 'text-gray-400' : 'text-gray-600'
-            }`}>
+            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               Professional journey building impactful solutions and gaining valuable experience
             </p>
           </div>
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#00BFFF] hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-            {experiences.map((exp, index) => (
-              <div key={exp.id} className="relative mb-12 md:ml-20">
-                {/* Timeline Dot */}
-                <div className="absolute -left-12 top-6 w-4 h-4 bg-[#00BFFF] rounded-full border-4 border-white hidden md:block" />
+            {experiences.map((exp) => (
+              <div key={exp.id} className="relative mb-10 md:ml-20">
+                {/* Timeline dot */}
+                <div className="absolute -left-[3.05rem] top-8 w-3 h-3 bg-primary rounded-full hidden md:block shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
 
-                {/* Experience Card */}
-                <div className={`p-8 rounded-xl transition-all duration-300 hover:shadow-lg ${
-                  isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-50 hover:bg-white shadow-md'
-                }`}>
+                <div className="glass-card rounded-2xl p-6 md:p-8">
                   {/* Header */}
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-3">
                     <div>
-                      <h3 className={`text-xl md:text-2xl font-bold mb-2 ${
-                        isDarkMode ? 'text-white' : 'text-gray-900'
-                      }`}>
-                        {exp.title}
-                      </h3>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[#00BFFF] font-medium">
-                        <span className="flex items-center gap-1">
-                          <Briefcase size={16} />
-                          {exp.company}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin size={16} />
-                          {exp.location}
-                        </span>
+                      <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
+                      <div className="flex flex-wrap items-center gap-3 text-primary text-sm font-medium">
+                        <span className="flex items-center gap-1"><Briefcase size={14} />{exp.company}</span>
+                        <span className="flex items-center gap-1"><MapPin size={14} />{exp.location}</span>
                       </div>
                     </div>
-                    <div className={`flex flex-col sm:flex-row sm:items-center gap-2 mt-4 lg:mt-0 ${
-                      isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
-                      <Calendar size={16} />
-                      <span className="text-sm">{exp.period}</span>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
-                      }`}>
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                      <Calendar size={14} />
+                      <span>{exp.period}</span>
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-medium glass text-primary border-primary/20">
                         {exp.type}
                       </span>
                     </div>
                   </div>
 
                   {/* Achievements */}
-                  <div className="space-y-4 mb-6">
+                  <div className="space-y-3 mb-6">
                     {exp.achievements.map((achievement, achIndex) => (
                       <div
                         key={achIndex}
                         id={`${exp.id}-stat-${achIndex}`}
-                        className={`flex items-start gap-3 p-4 rounded-lg ${
-                          isDarkMode ? 'bg-gray-700' : 'bg-white'
-                        }`}
+                        className="flex items-start gap-3 p-3 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors duration-300"
                       >
-                        <div className="w-2 h-2 bg-[#00BFFF] rounded-full mt-2 flex-shrink-0" />
-                        <p className={`text-sm leading-relaxed ${
-                          isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                        }`}>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 shadow-[0_0_6px_hsl(var(--primary)/0.5)]" />
+                        <p className="text-sm text-muted-foreground leading-relaxed">
                           {achievement.text}{' '}
-                           {achievement.highlight && (
-                             <AnimatedNumber 
-                               value={achievement.highlight} 
-                               isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} 
-                             />
-                           )}
-                           {achievement.suffix && ` ${achievement.suffix}`}
+                          {achievement.highlight && (
+                            <AnimatedNumber value={achievement.highlight} isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} />
+                          )}
+                          {achievement.suffix && ` ${achievement.suffix}`}
                         </p>
                       </div>
                     ))}
@@ -236,20 +164,11 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
 
                   {/* Skills */}
                   <div>
-                    <h4 className={`text-sm font-semibold mb-3 ${
-                      isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
-                      TECHNOLOGIES USED
-                    </h4>
-                    <div className="flex flex-wrap gap-1 md:gap-2">
-                      {exp.skills.map((skill, skillIndex) => (
-                        <div
-                          key={skillIndex}
-                          className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-colors duration-300 hover:bg-[#00BFFF] hover:text-white ${
-                            isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
-                          }`}
-                        >
-                          <TechIcon name={skill} size={14} />
+                    <h4 className="text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wider">Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill, i) => (
+                        <div key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium glass text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300">
+                          <TechIcon name={skill} size={12} />
                           {skill}
                         </div>
                       ))}

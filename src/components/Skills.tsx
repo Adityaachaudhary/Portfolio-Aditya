@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Code, Database, Settings, Layers } from 'lucide-react';
 import TechIcon from './TechIcon';
@@ -11,73 +10,44 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const skillCategories = {
-    languages: {
-      title: 'Languages',
-      icon: Code,
-      skills: ['Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Python', 'C']
-    },
-    frameworks: {
-      title: 'Frameworks',
-      icon: Layers,
-      skills: ['ReactJS', 'ExpressJS', 'NodeJS', 'Tailwind CSS', 'Redux Toolkit', 'Bootstrap']
-    },
-    databases: {
-      title: 'Databases',
-      icon: Database,
-      skills: ['MongoDB', 'MySQL', 'Firebase']
-    },
-    tools: {
-      title: 'Dev Tools',
-      icon: Settings,
-      skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform', 'Figma', 'Postman']
-    },
-    competency: {
-      title: 'Competencies',
-      icon: Code,
-      skills: ['Full Stack Development', 'Data Structures', 'DBMS', 'Object Oriented Programming']
-    }
+    languages: { title: 'Languages', icon: Code, skills: ['Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Python', 'C'] },
+    frameworks: { title: 'Frameworks', icon: Layers, skills: ['ReactJS', 'ExpressJS', 'NodeJS', 'Tailwind CSS', 'Redux Toolkit', 'Bootstrap'] },
+    databases: { title: 'Databases', icon: Database, skills: ['MongoDB', 'MySQL', 'Firebase'] },
+    tools: { title: 'Dev Tools', icon: Settings, skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform', 'Figma', 'Postman'] },
+    competency: { title: 'Competencies', icon: Code, skills: ['Full Stack Development', 'Data Structures', 'DBMS', 'Object Oriented Programming'] },
   };
 
-  const getAllSkills = () => {
-    return Object.values(skillCategories).flatMap(category => category.skills);
-  };
-
+  const getAllSkills = () => Object.values(skillCategories).flatMap(c => c.skills);
   const getFilteredSkills = () => {
-    if (activeCategory === 'all') {
-      return getAllSkills();
-    }
+    if (activeCategory === 'all') return getAllSkills();
     return skillCategories[activeCategory as keyof typeof skillCategories]?.skills || [];
   };
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F172A]' : 'bg-gray-50'}`}>
-      <div className="container mx-auto px-6">
+    <section className="py-20 relative overflow-hidden section-gradient-dark-alt">
+      <div className="absolute inset-0 gradient-mesh-alt" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              Technical <span className="text-[#00BFFF]">Skills</span>
+          {/* Header */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Technical <span className="text-primary">Skills</span>
             </h2>
-            <div className="w-24 h-1 bg-[#00BFFF] mx-auto rounded-full mb-8" />
-            <p className={`text-lg max-w-2xl mx-auto ${
-              isDarkMode ? 'text-gray-400' : 'text-gray-600'
-            }`}>
+            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               A comprehensive toolkit for building modern, scalable web applications
             </p>
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+          {/* Filters */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base transition-all duration-300 ${
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeCategory === 'all'
-                  ? 'bg-[#00BFFF] text-white shadow-lg'
-                  : isDarkMode
-                  ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+                  ? 'btn-primary'
+                  : 'glass text-muted-foreground hover:text-foreground hover:border-primary/30'
               }`}
             >
               All Skills
@@ -88,15 +58,13 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                     activeCategory === key
-                      ? 'bg-[#00BFFF] text-white shadow-lg'
-                      : isDarkMode
-                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+                      ? 'btn-primary'
+                      : 'glass text-muted-foreground hover:text-foreground hover:border-primary/30'
                   }`}
                 >
-                  <IconComponent size={18} />
+                  <IconComponent size={14} />
                   {category.title}
                 </button>
               );
@@ -104,38 +72,24 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
             {getFilteredSkills().map((skill, index) => (
               <div
                 key={skill}
-                className={`group p-2 md:p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer animate-fade-in ${
-                  isDarkMode 
-                    ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
-                    : 'bg-white hover:bg-gray-50 text-gray-700 shadow-md'
-                }`}
-                style={{ animationDelay: `${index * 50}ms` }}
+                className="glass-card rounded-xl p-3 cursor-pointer animate-fade-in group"
+                style={{ animationDelay: `${index * 40}ms` }}
               >
                 <div className="text-center">
-                  <div className={`w-5 h-5 md:w-7 md:h-7 mx-auto mb-1 md:mb-2 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                    isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
-                  }`}>
-                    <TechIcon 
-                      name={skill} 
-                      size={10} 
-                      className="md:w-4 md:h-4 transition-opacity duration-300"
-                    />
+                  <div className="w-8 h-8 mx-auto mb-2 rounded-lg flex items-center justify-center bg-muted/50 group-hover:bg-primary/20 transition-colors duration-300">
+                    <TechIcon name={skill} size={14} className="transition-opacity duration-300" />
                   </div>
-                  <h3 className={`font-semibold text-xs md:text-sm transition-colors duration-300 ${
-                    isDarkMode ? 'text-white group-hover:text-[#00BFFF]' : 'text-gray-900 group-hover:text-[#00BFFF]'
-                  }`}>
+                  <h3 className="font-semibold text-xs text-foreground group-hover:text-primary transition-colors duration-300">
                     {skill}
                   </h3>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Skills Summary - Remove this section as shown in the image */}
         </div>
       </div>
     </section>

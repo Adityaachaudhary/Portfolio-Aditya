@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Moon, Sun, Mail, Github, Linkedin, ExternalLink, Code, User, Briefcase, FolderOpen, Award, Brain, Menu, X } from 'lucide-react';
+import { Moon, Sun, Mail, Github, Linkedin, User, Code, Briefcase, FolderOpen, Award, Brain, Menu, X } from 'lucide-react';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
@@ -11,9 +11,9 @@ const Index = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    // Set initial theme
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
@@ -23,9 +23,9 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrollY(window.scrollY);
       const sections = ['about', 'skills', 'experience', 'projects', 'certificates', 'ai-tools'];
       const scrollPosition = window.scrollY + 100;
-
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -37,7 +37,6 @@ const Index = () => {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -45,7 +44,6 @@ const Index = () => {
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
-    
     if (newTheme) {
       document.documentElement.classList.add('dark');
     } else {
@@ -57,7 +55,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false); // Close mobile menu after navigation
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -70,177 +68,141 @@ const Index = () => {
     { id: 'ai-tools', label: 'AI Tools', icon: Brain },
   ];
 
+  const isScrolled = scrollY > 20;
+
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDarkMode 
-        ? 'dark bg-gradient-to-br from-black via-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
-    }`}>
-      {/* Navigation Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-opacity-90 border-b border-opacity-20">
-        <div className={`transition-colors duration-300 ${
-          isDarkMode 
-            ? 'bg-black/90 border-gray-700' 
-            : 'bg-white/90 border-gray-200'
-        }`}>
-          <nav className="container mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="text-xl font-bold bg-gradient-to-r from-[#00BFFF] to-cyan-400 bg-clip-text text-transparent">
-                Portfolio
-              </div>
-              
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative text-sm font-medium transition-colors duration-200 hover:text-[#00BFFF] ${
-                      activeSection === item.id 
-                        ? 'text-[#00BFFF]' 
-                        : isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    {item.label}
-                    {activeSection === item.id && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-cyan-400 rounded-full shadow-lg shadow-[#00BFFF]/50" />
-                    )}
-                  </button>
-                ))}
-              </div>
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-500">
+      {/* Noise overlay */}
+      <div className="noise-overlay" />
 
-              {/* Mobile & Theme Controls */}
-              <div className="flex items-center gap-2">
+      {/* Navigation */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'glass-strong py-3' : 'py-5'
+      }`}>
+        <nav className="container mx-auto px-6">
+          <div className="flex items-center justify-between">
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+              style={{ fontFamily: 'JetBrains Mono, monospace' }}
+            >
+              <span className="text-primary">&lt;</span>APC<span className="text-primary">/&gt;</span>
+            </button>
+            
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map((item) => (
                 <button
-                  onClick={toggleTheme}
-                  className={`p-2 rounded-lg transition-colors duration-200 ${
-                    isDarkMode 
-                      ? 'hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50' 
-                      : 'hover:bg-gray-100 text-gray-700 border border-gray-300/50 hover:border-[#00BFFF]/50'
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                    activeSection === item.id 
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
-                  {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                  {item.label}
+                  {activeSection === item.id && (
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
+                  )}
                 </button>
-
-                {/* Mobile Menu Toggle */}
-                <button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
-                    isDarkMode 
-                      ? 'hover:bg-gray-700 text-gray-300 border border-gray-600/50 hover:border-[#00BFFF]/50' 
-                      : 'hover:bg-gray-100 text-gray-700 border border-gray-300/50 hover:border-[#00BFFF]/50'
-                  }`}
-                >
-                  {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
-              </div>
+              ))}
             </div>
 
-            {/* Mobile Navigation Menu */}
-            {isMobileMenuOpen && (
-              <div className={`md:hidden mt-4 py-4 border-t transition-colors duration-300 ${
-                isDarkMode ? 'border-gray-700' : 'border-gray-200'
-              }`}>
-                <div className="grid grid-cols-2 gap-2">
-                  {navItems.map((item) => {
-                    const IconComponent = item.icon;
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id)}
-                        className={`flex items-center gap-2 p-3 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 ${
-                          activeSection === item.id 
-                            ? 'bg-[#00BFFF] text-white shadow-lg' 
-                            : isDarkMode 
-                              ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-[#00BFFF]' 
-                              : 'bg-gray-100 text-gray-700 hover:bg-white hover:text-[#00BFFF] hover:shadow-md'
-                        }`}
-                      >
-                        <IconComponent size={16} />
-                        {item.label}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-xl glass transition-all duration-300 hover:border-primary/30 text-muted-foreground hover:text-primary"
+              >
+                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2.5 rounded-xl glass transition-all duration-300 hover:border-primary/30 text-muted-foreground hover:text-primary"
+              >
+                {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 p-4 glass rounded-2xl animate-fade-in">
+              <div className="grid grid-cols-2 gap-2">
+                {navItems.map((item) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`flex items-center gap-2.5 p-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                        activeSection === item.id 
+                          ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
+                          : 'glass hover:border-primary/30 text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      <IconComponent size={16} />
+                      {item.label}
+                    </button>
+                  );
+                })}
               </div>
-            )}
-          </nav>
-        </div>
+            </div>
+          )}
+        </nav>
       </header>
 
       {/* Main Content */}
       <main>
         <section id="about">
-          <About isDarkMode={isDarkMode} />
+          <About isDarkMode={isDarkMode} scrollY={scrollY} />
         </section>
-
         <section id="skills">
           <Skills isDarkMode={isDarkMode} />
         </section>
-
         <section id="experience">
           <Experience isDarkMode={isDarkMode} />
         </section>
-
         <section id="projects">
           <Projects isDarkMode={isDarkMode} />
         </section>
-
         <section id="certificates">
           <Certificates isDarkMode={isDarkMode} />
         </section>
-
         <section id="ai-tools">
           <AITools isDarkMode={isDarkMode} />
         </section>
       </main>
 
       {/* Footer */}
-      <footer className={`border-t transition-colors duration-300 ${
-        isDarkMode 
-          ? 'bg-black border-gray-700' 
-          : 'bg-white border-gray-200'
-      }`}>
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              © 2025 Aditya Prakash Chaudhary. All rights reserved.
+      <footer className="glass border-t border-border/50">
+        <div className="container mx-auto px-6 py-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <span className="text-sm font-bold tracking-tight" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                <span className="text-primary">&lt;</span>APC<span className="text-primary">/&gt;</span>
+              </span>
+              <span className="text-xs text-muted-foreground">
+                © 2025 Aditya Prakash Chaudhary
+              </span>
             </div>
-            <div className="flex items-center space-x-4 mt-4 md:mt-0">
-              <a
-                href="https://www.linkedin.com/in/adityachaudhary28/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF]' 
-                    : 'hover:bg-gray-100 text-gray-600 hover:text-[#00BFFF]'
-                }`}
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://github.com/Adityaachaudhary"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF]' 
-                    : 'hover:bg-gray-100 text-gray-600 hover:text-[#00BFFF]'
-                }`}
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="mailto:adityaprakash.280102@gmail.com"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-700 text-gray-400 hover:text-[#00BFFF]' 
-                    : 'hover:bg-gray-100 text-gray-600 hover:text-[#00BFFF]'
-                }`}
-              >
-                <Mail size={20} />
-              </a>
+            <div className="flex items-center gap-3">
+              {[
+                { icon: Linkedin, href: "https://www.linkedin.com/in/adityachaudhary28/" },
+                { icon: Github, href: "https://github.com/Adityaachaudhary" },
+                { icon: Mail, href: "mailto:adityaprakash.280102@gmail.com" },
+              ].map(({ icon: Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target={href.startsWith('mailto:') ? undefined : "_blank"}
+                  rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
+                  className="p-3 rounded-xl glass text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
