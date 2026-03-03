@@ -27,7 +27,6 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     setTimeout(() => {
       console.log('Form submitted:', formData);
       setIsSubmitting(false);
@@ -58,20 +57,16 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F172A]' : 'bg-gray-50'}`}>
+    <section className="py-20 section-gradient-dark-alt">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              Get In <span className="text-[#00BFFF]">Touch</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Get In <span className="text-primary">Touch</span>
             </h2>
-            <div className="w-24 h-1 bg-[#00BFFF] mx-auto rounded-full mb-8" />
-            <p className={`text-lg max-w-2xl mx-auto ${
-              isDarkMode ? 'text-gray-400' : 'text-gray-600'
-            }`}>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8 glow-border" />
+            <p className="text-lg max-w-2xl mx-auto text-muted-foreground">
               Ready to collaborate on your next project? Let's discuss how we can work together to bring your ideas to life.
             </p>
           </div>
@@ -80,14 +75,10 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className={`text-xl md:text-2xl font-bold mb-6 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground">
                   Let's Start a Conversation
                 </h3>
-                <p className={`text-base md:text-lg mb-8 ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className="text-base md:text-lg mb-8 text-muted-foreground">
                   I'm always excited to discuss new opportunities, interesting projects, or just chat about technology. Feel free to reach out through any of the following channels.
                 </p>
               </div>
@@ -102,28 +93,14 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                       href={contact.link}
                       target={contact.link.startsWith('http') ? '_blank' : '_self'}
                       rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                      className={`flex items-center gap-4 p-4 md:p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
-                        isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white hover:bg-gray-50 shadow-md'
-                      }`}
+                      className="flex items-center gap-4 p-4 md:p-6 rounded-xl transition-all duration-300 hover:scale-105 glass-card group"
                     >
-                      <div className={`p-3 rounded-lg transition-colors duration-300 ${
-                        isDarkMode ? 'bg-gray-700 group-hover:bg-[#00BFFF]' : 'bg-gray-100 group-hover:bg-[#00BFFF]'
-                      }`}>
-                        <IconComponent className={`transition-colors duration-300 ${
-                          isDarkMode ? 'text-[#00BFFF] group-hover:text-white' : 'text-gray-600 group-hover:text-white'
-                        }`} size={24} />
+                      <div className="p-3 rounded-lg transition-colors duration-300 bg-muted/50 group-hover:bg-primary/20">
+                        <IconComponent className="text-primary transition-colors duration-300" size={24} />
                       </div>
                       <div>
-                        <h4 className={`font-semibold ${
-                          isDarkMode ? 'text-white' : 'text-gray-900'
-                        }`}>
-                          {contact.label}
-                        </h4>
-                        <p className={`text-sm ${
-                          isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                        }`}>
-                          {contact.value}
-                        </p>
+                        <h4 className="font-semibold text-foreground">{contact.label}</h4>
+                        <p className="text-sm text-muted-foreground">{contact.value}</p>
                       </div>
                     </a>
                   );
@@ -131,32 +108,20 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
               </div>
 
               {/* Call to Action */}
-              <div className={`p-4 md:p-6 rounded-xl ${
-                isDarkMode ? 'bg-gray-800' : 'bg-white shadow-md'
-              }`}>
-                <h4 className={`font-semibold mb-2 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Open to Opportunities
-                </h4>
-                <p className={`text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+              <div className="glass-card p-4 md:p-6 rounded-xl">
+                <h4 className="font-semibold mb-2 text-foreground">Open to Opportunities</h4>
+                <p className="text-sm text-muted-foreground">
                   Currently seeking full-time opportunities in full-stack development. Let's connect if you think we'd be a great fit!
                 </p>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className={`p-4 md:p-8 rounded-xl ${
-              isDarkMode ? 'bg-gray-800' : 'bg-white shadow-lg'
-            }`}>
+            <div className="glass-card p-4 md:p-8 rounded-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                   <div>
-                    <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
-                      isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
                       Full Name
                     </label>
                     <input
@@ -166,18 +131,12 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00BFFF] ${
-                        isDarkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                          : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                      }`}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className={`block text-sm font-medium mb-2 ${
-                      isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
                       Email Address
                     </label>
                     <input
@@ -187,20 +146,14 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00BFFF] ${
-                        isDarkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                          : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                      }`}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className={`block text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
                     Subject
                   </label>
                   <input
@@ -210,19 +163,13 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00BFFF] ${
-                      isDarkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder="What would you like to discuss?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className={`block text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
                     Message
                   </label>
                   <textarea
@@ -232,11 +179,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className={`w-full px-4 py-3 rounded-lg border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00BFFF] resize-none ${
-                      isDarkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
                     placeholder="Tell me about your project, ideas, or just say hello!"
                   />
                 </div>
@@ -244,13 +187,13 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full flex items-center justify-center gap-2 px-8 py-4 bg-[#00BFFF] text-white rounded-lg font-medium transition-all duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed ${
+                  className={`w-full btn-primary flex items-center justify-center gap-2 px-8 py-4 disabled:opacity-50 disabled:cursor-not-allowed ${
                     isSubmitting ? 'animate-pulse' : ''
                   }`}
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
                       Sending...
                     </>
                   ) : (
