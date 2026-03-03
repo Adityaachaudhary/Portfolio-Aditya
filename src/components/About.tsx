@@ -41,14 +41,14 @@ const About: React.FC<AboutProps> = ({ isDarkMode, scrollY = 0 }) => {
       <div 
         className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full opacity-[0.07]"
         style={{ 
-          background: 'radial-gradient(circle, hsl(195 100% 50%), transparent 70%)',
+          background: 'radial-gradient(circle, hsl(0 0% 60%), transparent 70%)',
           transform: `translateY(${scrollY * 0.1}px)` 
         }} 
       />
       <div 
         className="absolute bottom-1/4 -left-32 w-[400px] h-[400px] rounded-full opacity-[0.05]"
         style={{ 
-          background: 'radial-gradient(circle, hsl(270 60% 50%), transparent 70%)',
+          background: 'radial-gradient(circle, hsl(0 0% 50%), transparent 70%)',
           transform: `translateY(${scrollY * -0.08}px)` 
         }} 
       />

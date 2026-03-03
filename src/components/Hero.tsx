@@ -48,64 +48,53 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden pt-32 ${
-      isDarkMode 
-        ? 'bg-gradient-to-br from-black via-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
-    }`}>
-      {/* Enhanced Background Pattern */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 section-gradient-dark">
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-gradient-to-r from-[#00BFFF] to-cyan-400 blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-green-400 to-blue-500 blur-3xl animate-pulse delay-2000" />
+        <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-muted/50 blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-muted/30 blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-muted/40 blur-3xl animate-pulse delay-2000" />
       </div>
+      <div className="absolute inset-0 gradient-mesh" />
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Main Heading */}
           <div className="space-y-6">
             <div className="relative">
-              <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r ${
-                isDarkMode 
-                  ? 'from-white via-gray-200 to-[#00BFFF]' 
-                  : 'from-gray-900 via-gray-700 to-[#00BFFF]'}
-              } bg-clip-text text-transparent`}>
-                ADITYA PRAKASH CHAUDHARY
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground">
+                ADITYA PRAKASH{' '}
+                <span className="text-primary glow-text">CHAUDHARY</span>
               </h1>
             </div>
             
             {/* Typing effect */}
             <div className="h-20 flex items-center justify-center">
-              <h2 className={`text-2xl md:text-3xl font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground">
                 <span className="inline-block min-w-[1ch]">{typedText}</span>
-                <span className="text-[#00BFFF] font-bold animate-pulse">|</span>
+                <span className="text-primary font-bold animate-pulse">|</span>
               </h2>
             </div>
           </div>
 
           {/* Tagline */}
           <div className="relative">
-            <p className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light ${
-              isDarkMode ? 'text-gray-300' : 'text-gray-700'}
-            }`}>
-              Crafting <span className="text-[#00BFFF] font-semibold">seamless digital experiences</span> with 
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light text-muted-foreground">
+              Crafting <span className="text-primary font-semibold">seamless digital experiences</span> with 
               <br className="hidden md:block" />
-              innovative solutions and <span className="text-[#00BFFF] font-semibold">scalable architecture</span>
+              innovative solutions and <span className="text-primary font-semibold">scalable architecture</span>
             </p>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#00BFFF] to-transparent rounded-full shadow-lg shadow-[#00BFFF]/50" />
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-primary/50 rounded-full glow-border" />
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative overflow-hidden px-10 py-4 bg-gradient-to-r from-[#00BFFF] to-cyan-400 text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#00BFFF]/30"
+              className="btn-primary flex items-center gap-2 px-10 py-4 text-base"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-2">
-                <Code size={20} />
-                View Projects
-              </span>
+              <Code size={20} />
+              View Projects
             </button>
           </div>
 
@@ -122,14 +111,10 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
                 href={href}
                 target={href.startsWith('mailto:') ? undefined : "_blank"}
                 rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
-                className={`group p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl border ${
-                  isDarkMode 
-                    ? 'border-gray-600/50 bg-gray-900/50 text-gray-300' 
-                    : 'border-gray-300/50 bg-white/50 text-gray-700'}
-                } hover:bg-gradient-to-br hover:from-[#00BFFF] hover:to-cyan-400 hover:text-white hover:border-[#00BFFF] backdrop-blur-sm shadow-lg`}
+                className="group p-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-xl glass hover:border-primary/50 hover:-translate-y-1"
                 title={label}
               >
-                <Icon size={24} className="transition-transform duration-300 group-hover:rotate-12" />
+                <Icon size={24} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
               </a>
             ))}
           </div>
@@ -139,17 +124,11 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNext}
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 hover:scale-110 ${
-          isDarkMode ? 'text-gray-400 hover:text-[#00BFFF]' : 'text-gray-600 hover:text-[#00BFFF]'}
-        }`}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-300 hover:scale-110 text-muted-foreground hover:text-primary"
       >
         <div className="flex flex-col items-center gap-2">
-          <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-300 ${
-            isDarkMode ? 'border-gray-400 hover:border-[#00BFFF]' : 'border-gray-600 hover:border-[#00BFFF]'}
-          }`}>
-            <div className={`w-1 h-3 rounded-full mt-2 animate-bounce ${
-              isDarkMode ? 'bg-gray-400' : 'bg-gray-600'}
-            }`} />
+          <div className="w-6 h-10 border-2 border-muted-foreground hover:border-primary rounded-full flex justify-center transition-colors duration-300">
+            <div className="w-1 h-3 rounded-full mt-2 animate-bounce bg-muted-foreground" />
           </div>
           <ChevronDown size={24} className="animate-pulse" />
         </div>
