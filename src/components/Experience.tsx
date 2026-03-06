@@ -12,17 +12,21 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   const experiences = [
     {
       id: 'config-cloud',
-      title: 'Web Developer Intern',
+      title: 'Web Developer',
       company: 'Config Cloud',
       location: 'Hybrid',
-      period: '06/2025 - Present',
-      type: 'Internship',
+      period: '06/2025 - 12/2025',
+      type: 'Full-time',
       achievements: [
-        { text: 'Converted', highlight: '6+', suffix: 'Figma dashboard pages into modular React (ES6+) components styled with CSS Modules, building a reusable UI component library' },
-        { text: 'Implemented multi-select filters and server-side pagination with REST APIs, cutting redundant API calls by', highlight: '45%', suffix: 'and improving median time-to-first-interaction by ~1.2s' },
-        { text: 'Designed a robust drag-and-drop file uploader with preview, client-side validation, resumable uploads, and progress tracking, integrated with AWS S3 and neo4j' }
+        { text: 'Transformed Figma designs into', highlight: '10+', suffix: 'pixel-perfect, responsive React pages, building a reusable component library with design tokens to improve development speed, scalability, and cross-browser UI consistency' },
+        { text: 'Developed', highlight: '5', suffix: 'reusable, accessible filter components (multi-select, range, search, sort) to enhance content discoverability and reduce user time-to-find relevant results' },
+        { text: 'Architected a client-first image & 3D objects upload workflow (up to 10MB) using in-browser validation and S3 presigned URLs, reducing backend processing load and improving scalability' },
+        { text: 'Integrated Neo4j and', highlight: '15+', suffix: 'third-party APIs to aggregate real-time data, implementing caching and optimized queries to minimize latency and enhance frontend performance' },
+        { text: 'Architected an interactive 3D rendering canvas using Three.js, implementing real-time camera controls to render quality 3D assets uploaded by users' },
+        { text: 'Built dynamic UI controls (sliders, image buttons, multi-select) to drive live 3D camera positioning, material updates, and model configuration in real time' },
+        { text: 'Led frontend optimizations using lazy loading, memoization, and code-splitting, consistently delivering features within 2-week Agile sprints through cross-functional collaboration' }
       ],
-      skills: ['React.js', 'CSS Modules', 'Axios', 'REST APIs', 'AWS S3', 'Neo4j']
+      skills: ['React.js', 'Three.js', 'Neo4j', 'AWS S3', 'REST APIs', 'Agile']
     },
     {
       id: 'jabsz',
