@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ChevronDown } from 'lucide-react';
 import TechIcon from './TechIcon';
 
 interface ExperienceProps {
@@ -8,6 +8,7 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   const [visibleStats, setVisibleStats] = useState<{ [key: string]: boolean }>({});
+  const [expandedId, setExpandedId] = useState<string>('config-cloud-jr');
 
   const experiences = [
     {
@@ -115,6 +116,10 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
     return <span className="text-primary font-bold">{displayValue}</span>;
   };
 
+  const toggleExpand = (id: string) => {
+    setExpandedId(prev => prev === id ? '' : id);
+  };
+
   return (
     <section className="py-20 relative overflow-hidden section-gradient-dark">
       <div className="absolute inset-0 gradient-mesh" />
@@ -136,65 +141,92 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-            {experiences.map((exp) => (
-              <div key={exp.id} className="relative mb-10 md:ml-20">
-                {/* Timeline dot */}
-                <div className="absolute -left-[3.05rem] top-8 w-3 h-3 bg-primary rounded-full hidden md:block shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
+            {experiences.map((exp) => {
+              const isExpanded = expandedId === exp.id;
+              return (
+                <div key={exp.id} className="relative mb-4 md:ml-20">
+                  {/* Timeline dot */}
+                  <div className={`absolute -left-[3.05rem] top-5 w-3 h-3 rounded-full hidden md:block transition-all duration-300 ${
+                    isExpanded ? 'bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]' : 'bg-muted-foreground/40'
+                  }`} />
 
-                <div className="glass-card rounded-2xl p-6 md:p-8">
-                  {/* Header */}
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-3">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
-                      <div className="flex flex-wrap items-center gap-3 text-primary text-sm font-medium">
-                        <span className="flex items-center gap-1"><Briefcase size={14} />{exp.company}</span>
-                        <span className="flex items-center gap-1"><MapPin size={14} />{exp.location}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                      <Calendar size={14} />
-                      <span>{exp.period}</span>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-medium glass text-primary border-primary/20">
-                        {exp.type}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Achievements */}
-                  <div className="space-y-3 mb-6">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <div
-                        key={achIndex}
-                        id={`${exp.id}-stat-${achIndex}`}
-                        className="flex items-start gap-3 p-3 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors duration-300"
-                      >
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 shadow-[0_0_6px_hsl(var(--primary)/0.5)]" />
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {achievement.text}{' '}
-                          {achievement.highlight && (
-                            <AnimatedNumber value={achievement.highlight} isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} />
-                          )}
-                          {achievement.suffix && ` ${achievement.suffix}`}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Skills */}
-                  <div>
-                    <h4 className="text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wider">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, i) => (
-                        <div key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium glass text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300">
-                          <TechIcon name={skill} size={12} />
-                          {skill}
+                  <div className="glass-card rounded-2xl overflow-hidden">
+                    {/* Clickable Header */}
+                    <button
+                      onClick={() => toggleExpand(exp.id)}
+                      className="w-full text-left p-5 md:p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 hover:bg-muted/20 transition-colors duration-300"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div>
+                          <h3 className="text-lg font-bold text-foreground leading-tight">{exp.title}</h3>
+                          <div className="flex flex-wrap items-center gap-3 text-primary text-xs font-medium mt-0.5">
+                            <span className="flex items-center gap-1"><Briefcase size={12} />{exp.company}</span>
+                            <span className="flex items-center gap-1"><MapPin size={12} />{exp.location}</span>
+                          </div>
                         </div>
-                      ))}
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <div className="flex items-center gap-2 text-muted-foreground text-xs">
+                          <Calendar size={12} />
+                          <span>{exp.period}</span>
+                          <span className="px-2 py-0.5 rounded-full text-xs font-medium glass text-primary border-primary/20">
+                            {exp.type}
+                          </span>
+                        </div>
+                        <ChevronDown
+                          size={16}
+                          className={`text-muted-foreground transition-transform duration-300 ml-2 ${
+                            isExpanded ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </div>
+                    </button>
+
+                    {/* Collapsible Content */}
+                    <div
+                      className={`transition-all duration-400 ease-in-out overflow-hidden ${
+                        isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <div className="px-5 md:px-6 pb-5 md:pb-6">
+                        {/* Achievements */}
+                        <div className="space-y-2 mb-4">
+                          {exp.achievements.map((achievement, achIndex) => (
+                            <div
+                              key={achIndex}
+                              id={`${exp.id}-stat-${achIndex}`}
+                              className="flex items-start gap-2.5 p-2.5 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors duration-300"
+                            >
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0 shadow-[0_0_6px_hsl(var(--primary)/0.5)]" />
+                              <p className="text-xs text-muted-foreground leading-relaxed">
+                                {achievement.text}{' '}
+                                {achievement.highlight && (
+                                  <AnimatedNumber value={achievement.highlight} isVisible={visibleStats[`${exp.id}-stat-${achIndex}`]} />
+                                )}
+                                {achievement.suffix && ` ${achievement.suffix}`}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Skills */}
+                        <div>
+                          <h4 className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">Technologies</h4>
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.skills.map((skill, i) => (
+                              <div key={i} className="flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium glass text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300">
+                                <TechIcon name={skill} size={11} />
+                                {skill}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
