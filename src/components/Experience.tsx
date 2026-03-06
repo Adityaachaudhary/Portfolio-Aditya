@@ -11,6 +11,20 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
 
   const experiences = [
     {
+      id: 'config-cloud-jr',
+      title: 'Junior Frontend Developer',
+      company: 'Config Cloud',
+      location: 'Hybrid',
+      period: '01/2026 - Present',
+      type: 'Full-time',
+      achievements: [
+        { text: 'Implemented a subscription module in the React dashboard supporting', highlight: '3', suffix: 'subscription tiers and enforcing per-tier feature limits across the UI and API surface; with client-side gating and clear UX for choosing/upgrading tiers' },
+        { text: 'Built an interactive 3D material preview using Three.js to render configurable 3D models and apply selected materials in real time, enabling users to preview materials on the configurator before purchase' },
+        { text: 'Authored comprehensive developer documentation and a user guide for the dashboard, including step-by-step instructions, videos, GIFs, and screenshots, to speed onboarding and reduce support overhead' }
+      ],
+      skills: ['React.js', 'Three.js', 'TypeScript', 'REST APIs', 'Documentation']
+    },
+    {
       id: 'config-cloud',
       title: 'Web Developer',
       company: 'Config Cloud',
