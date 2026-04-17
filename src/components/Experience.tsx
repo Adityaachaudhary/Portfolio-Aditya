@@ -30,7 +30,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       title: 'Web Developer',
       company: 'Config Cloud',
       location: 'Hybrid',
-      period: '06/2025 - 12/2025',
+      period: '04/2025 - 12/2025',
       type: 'Full-time',
       achievements: [
         { text: 'Transformed Figma designs into', highlight: '10+', suffix: 'pixel-perfect, responsive React pages, building a reusable component library with design tokens to improve development speed, scalability, and cross-browser UI consistency' },
@@ -48,7 +48,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       title: 'Web Developer Intern',
       company: 'Jabsz Gaming Studios LLP',
       location: 'Remote',
-      period: '01/2025 - 06/2025',
+      period: '11/2024 - 04/2025',
       type: 'Internship',
       achievements: [
         { text: 'Designed and integrated a complete Expense Management module that allowed employees to submit and track reimbursement requests online, reducing processing time and improving transparency for', highlight: '80+', suffix: 'employees using React, REST APIs, and Firebase' },
