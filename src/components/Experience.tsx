@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Briefcase, Calendar, MapPin, ChevronDown } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ChevronDown, Clock } from 'lucide-react';
 import TechIcon from './TechIcon';
 
 interface ExperienceProps {
