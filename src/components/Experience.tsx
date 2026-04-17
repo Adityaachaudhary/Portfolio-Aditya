@@ -10,6 +10,23 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   const [visibleStats, setVisibleStats] = useState<{ [key: string]: boolean }>({});
   const [expandedId, setExpandedId] = useState<string>('config-cloud-jr');
 
+  // Earliest professional start date (update when changing the first job)
+  const careerStartDate = new Date('2024-11-01');
+
+  const totalExperience = React.useMemo(() => {
+    const now = new Date();
+    let years = now.getFullYear() - careerStartDate.getFullYear();
+    let months = now.getMonth() - careerStartDate.getMonth();
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+    const yearStr = years > 0 ? `${years} yr${years > 1 ? 's' : ''}` : '';
+    const monthStr = months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : '';
+    if (!yearStr && !monthStr) return '< 1 mo';
+    return [yearStr, monthStr].filter(Boolean).join(' ');
+  }, []);
+
   const experiences = [
     {
       id: 'config-cloud-jr',
@@ -132,9 +149,14 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
               Work <span className="text-primary">Experience</span>
             </h2>
             <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
-            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-4">
               Professional journey building impactful solutions and gaining valuable experience
             </p>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/20">
+              <Clock size={14} className="text-primary" />
+              <span className="text-xs font-medium text-muted-foreground">Total Experience:</span>
+              <span className="text-xs font-bold text-primary">{totalExperience}</span>
+            </div>
           </div>
 
           {/* Timeline */}
