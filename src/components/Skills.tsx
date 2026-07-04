@@ -11,9 +11,9 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
 
   const skillCategories = {
     languages: { title: 'Languages', icon: Code, skills: ['Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Python', 'C', 'JSON'] },
-    frameworks: { title: 'Frameworks', icon: Layers, skills: ['ReactJS', 'ExpressJS', 'NodeJS', 'Tailwind CSS', 'Redux Toolkit', 'Bootstrap', 'Three.js'] },
-    databases: { title: 'Databases', icon: Database, skills: ['MongoDB', 'MySQL', 'Firebase', 'Neo4j'] },
-    tools: { title: 'Dev Tools', icon: Settings, skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform', 'Figma', 'Postman', 'Cursor', 'Antigravity'] },
+    frameworks: { title: 'Frameworks', icon: Layers, skills: ['ReactJS', 'Next.js', 'ExpressJS', 'NodeJS', 'Spring Boot', 'FastAPI', 'Hono', 'Tailwind CSS', 'shadcn UI', 'Redux Toolkit', 'TanStack Query', 'Bootstrap', 'Three.js', 'LangChain', 'LangGraph'] },
+    databases: { title: 'Databases', icon: Database, skills: ['MongoDB', 'MySQL', 'Firebase', 'Supabase', 'Neo4j', 'ChromaDB'] },
+    tools: { title: 'Dev Tools', icon: Settings, skills: ['Visual Studio Code', 'Git', 'GitHub', 'Google Cloud Platform', 'AWS S3', 'Cloudflare', 'ERPNext', 'Figma', 'Postman', 'Cursor', 'Antigravity'] },
     competency: { title: 'Competencies', icon: Code, skills: ['Full Stack Development', 'Data Structures', 'DBMS', 'Object Oriented Programming', '3D Rendering'] },
   };
 

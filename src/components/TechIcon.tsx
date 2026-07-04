@@ -55,6 +55,21 @@ const TechIcon: React.FC<TechIconProps> = ({ name, size = 24, className = "" }) 
       'Cursor': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cursor/cursor-original.svg',
       '3D Rendering': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg',
       'Antigravity': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
+
+      // Newly added
+      'Spring Boot': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
+      'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
+      'Supabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg',
+      'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+      'ERPNext': 'https://cdn.simpleicons.org/erpnext/0089FF',
+      'AWS S3': 'https://cdn.simpleicons.org/amazons3/569A31',
+      'Cloudflare': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg',
+      'Hono': 'https://cdn.simpleicons.org/hono/E36002',
+      'ChromaDB': 'https://cdn.simpleicons.org/chromadb/FFDE00',
+      'LangChain': 'https://cdn.simpleicons.org/langchain/1C3C3C',
+      'LangGraph': 'https://cdn.simpleicons.org/langgraph/1C3C3C',
+      'shadcn UI': 'https://cdn.simpleicons.org/shadcnui/FFFFFF',
+      'TanStack Query': 'https://cdn.simpleicons.org/reactquery/FF4154',
     };
 
     return iconMap[techName] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
