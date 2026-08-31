@@ -64,7 +64,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
           </SectionHeading>
 
           {/* Carousel */}
-          <div className="relative px-12">
+          <div className="relative px-12 py-10 md:py-14">
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-3 md:-ml-4">
                 {certificates.map((cert, index) => (
