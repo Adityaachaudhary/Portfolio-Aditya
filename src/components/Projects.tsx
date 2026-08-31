@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github, Code, Database, ArrowLeft, ArrowRight } from 'lucide-react';
 import TechIcon from './TechIcon';
+import SectionHeading from './SectionHeading';
 import {
   Carousel,
   CarouselContent,
