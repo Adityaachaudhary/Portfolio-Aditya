@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Calendar, MapPin, ChevronDown, Clock } from 'lucide-react';
 import TechIcon from './TechIcon';
+import SectionHeading from './SectionHeading';
+import Reveal from './Reveal';
 
 interface ExperienceProps {
   isDarkMode: boolean;
@@ -144,35 +146,37 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Work <span className="text-primary">Experience</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
-            <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-4">
-              Professional journey building impactful solutions and gaining valuable experience
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/20">
-              <Clock size={14} className="text-primary" />
-              <span className="text-xs font-medium text-muted-foreground">Total Experience:</span>
-              <span className="text-xs font-bold text-primary">{totalExperience}</span>
+          <SectionHeading index="03" label="Career">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Work <span className="text-primary">Experience</span>
+              </h2>
+              <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep mb-6" />
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-4">
+                Professional journey building impactful solutions and gaining valuable experience
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/20">
+                <Clock size={14} className="text-primary" />
+                <span className="text-xs font-medium text-muted-foreground">Total Experience:</span>
+                <span className="text-xs font-bold text-primary">{totalExperience}</span>
+              </div>
             </div>
-          </div>
+          </SectionHeading>
 
           {/* Timeline */}
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-            {experiences.map((exp) => {
+            {experiences.map((exp, i) => {
               const isExpanded = expandedId === exp.id;
               return (
-                <div key={exp.id} className="relative mb-4 md:ml-20">
+                <Reveal key={exp.id} from="right" delay={i * 90} className="relative mb-4 md:ml-20 block">
                   {/* Timeline dot */}
                   <div className={`absolute -left-[3.05rem] top-5 w-3 h-3 rounded-full hidden md:block transition-all duration-300 ${
                     isExpanded ? 'bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]' : 'bg-muted-foreground/40'
                   }`} />
 
-                  <div className="glass-card rounded-2xl overflow-hidden">
+                  <div className="glass-card spotlight rounded-2xl overflow-hidden">
                     {/* Clickable Header */}
                     <button
                       onClick={() => toggleExpand(exp.id)}
@@ -246,7 +250,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, GraduationCap, BookOpen, Github, Linkedin, Mail, FolderOpen, Code } from 'lucide-react';
 import me from '@/assets/me.jpg';
+import Reveal from './Reveal';
 
 interface AboutProps {
   isDarkMode: boolean;
@@ -56,7 +57,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode, scrollY = 0 }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Hero Header */}
-          <div className="text-center mb-16">
+          <Reveal from="none" className="text-center mb-16 block">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4">
               ADITYA PRAKASH{' '}
               <span className="text-primary glow-text">CHAUDHARY</span>
@@ -67,19 +68,20 @@ const About: React.FC<AboutProps> = ({ isDarkMode, scrollY = 0 }) => {
                 <span className="animate-pulse">|</span>
               </span>
             </div>
-          </div>
+          </Reveal>
 
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <Reveal from="up" className="text-center mb-16 block">
+            <span className="kicker">01 — About</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 mt-4">
               About <span className="text-primary">Me</span>
             </h2>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border" />
-          </div>
+            <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep" />
+          </Reveal>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Photo */}
-            <div className="relative order-1">
+            <Reveal from="left" className="relative order-1 block">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="relative aspect-square max-w-[380px] mx-auto overflow-hidden rounded-3xl glass-card p-1">
                   <img
@@ -93,10 +95,10 @@ const About: React.FC<AboutProps> = ({ isDarkMode, scrollY = 0 }) => {
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
               </div>
-            </div>
+            </Reveal>
 
             {/* Content */}
-            <div className="space-y-6 order-2 text-center lg:text-left">
+            <Reveal from="right" delay={120} className="space-y-6 order-2 text-center lg:text-left block">
               <div className="flex items-center gap-2 text-primary justify-center lg:justify-start">
                 <MapPin size={18} />
                 <span className="text-sm font-medium tracking-wide uppercase">Based in India</span>
@@ -123,25 +125,25 @@ const About: React.FC<AboutProps> = ({ isDarkMode, scrollY = 0 }) => {
 
               {/* Stats Cards */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="glass-card rounded-xl p-4 text-center">
+                <div className="glass-card spotlight rounded-xl p-4 text-center">
                   <GraduationCap className="text-primary mx-auto mb-2" size={20} />
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">CGPA</div>
                   <div className="text-lg font-bold text-foreground">7.63/10</div>
                 </div>
-                <div className="glass-card rounded-xl p-4 text-center">
+                <div className="glass-card spotlight rounded-xl p-4 text-center">
                   <BookOpen className="text-primary mx-auto mb-2" size={20} />
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">Education</div>
                   <div className="text-lg font-bold text-foreground">B.Tech CSE</div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* CTA */}
           <div className="flex justify-center mt-14">
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary flex items-center gap-2"
+              className="btn-primary press flex items-center gap-2"
             >
               <FolderOpen size={18} />
               View Projects

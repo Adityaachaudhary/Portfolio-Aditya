@@ -41,6 +41,19 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cursor-follow spotlight for cards using the .spotlight utility
+  useEffect(() => {
+    const handlePointerMove = (e: PointerEvent) => {
+      const target = (e.target as HTMLElement)?.closest?.('.spotlight') as HTMLElement | null;
+      if (!target) return;
+      const rect = target.getBoundingClientRect();
+      target.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+      target.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    };
+    window.addEventListener('pointermove', handlePointerMove);
+    return () => window.removeEventListener('pointermove', handlePointerMove);
+  }, []);
+
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
@@ -112,7 +125,7 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleTheme}
-                className="p-2.5 rounded-xl glass transition-all duration-300 hover:border-primary/30 text-muted-foreground hover:text-primary"
+                className="p-2.5 rounded-xl glass press transition-all duration-300 hover:border-primary/30 text-muted-foreground hover:text-primary"
               >
                 {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
