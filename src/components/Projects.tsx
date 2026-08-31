@@ -99,7 +99,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-3 md:-ml-4">
                 {projects.map((project) => (
                   <CarouselItem key={project.id} className="pl-3 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                    <div className="glass-card spotlight rounded-2xl overflow-hidden h-[460px] md:h-[500px] group">
+                    <div className="glass-card spotlight rounded-2xl overflow-hidden h-[460px] md:h-[500px] group hover:transform-none">
                       <div className="relative px-5 pt-7 pb-5 h-full flex flex-col">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-3">
