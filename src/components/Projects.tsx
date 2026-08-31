@@ -92,10 +92,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
               </p>
             </div>
           </SectionHeading>
+        </div>
+      </div>
 
-          {/* Carousel */}
-          <div className="relative px-16 md:px-20 py-10 md:py-14">
-            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+      {/* Full-width Carousel */}
+      <div className="relative z-10 py-10 md:py-14">
+        <Carousel opts={{ align: "start", loop: true }} className="w-full px-4 md:px-8">
               <CarouselContent className="-ml-3 md:-ml-4">
                 {projects.map((project) => (
                   <CarouselItem key={project.id} className="pl-3 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
@@ -163,15 +165,13 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 bg-primary border-primary hover:bg-primary/80 text-primary-foreground shadow-lg shadow-primary/30">
+              <CarouselPrevious className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-primary border-primary hover:bg-primary/80 text-primary-foreground shadow-lg shadow-primary/30">
                 <ArrowLeft className="h-4 w-4" />
               </CarouselPrevious>
-              <CarouselNext className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-primary border-primary hover:bg-primary/80 text-primary-foreground shadow-lg shadow-primary/30">
+              <CarouselNext className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-primary border-primary hover:bg-primary/80 text-primary-foreground shadow-lg shadow-primary/30">
                 <ArrowRight className="h-4 w-4" />
               </CarouselNext>
             </Carousel>
-          </div>
-        </div>
       </div>
     </section>
   );
