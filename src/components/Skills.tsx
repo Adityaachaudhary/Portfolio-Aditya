@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Code, Database, Settings, Layers } from 'lucide-react';
 import TechIcon from './TechIcon';
+import SectionHeading from './SectionHeading';
 
 interface SkillsProps {
   isDarkMode: boolean;
