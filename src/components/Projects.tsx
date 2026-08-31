@@ -80,15 +80,17 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured <span className="text-primary">Projects</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
-            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-              Showcasing innovative solutions and technical expertise through real-world applications
-            </p>
-          </div>
+          <SectionHeading index="04" label="Work">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Featured <span className="text-primary">Projects</span>
+              </h2>
+              <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep mb-6" />
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+                Showcasing innovative solutions and technical expertise through real-world applications
+              </p>
+            </div>
+          </SectionHeading>
 
           {/* Carousel */}
           <div className="relative px-12">
