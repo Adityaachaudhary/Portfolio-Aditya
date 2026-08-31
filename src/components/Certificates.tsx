@@ -69,7 +69,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-3 md:-ml-4">
                 {certificates.map((cert, index) => (
                   <CarouselItem key={index} className="pl-3 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="glass-card spotlight rounded-2xl p-6 h-[340px] group flex flex-col">
+                    <div className="glass-card spotlight rounded-2xl pt-8 pb-6 px-6 h-[380px] group flex flex-col">
                       {/* Icon & Verified */}
                       <div className="flex items-start justify-between mb-5">
                         <div className="p-3 rounded-xl glass border-primary/20">
