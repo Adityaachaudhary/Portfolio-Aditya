@@ -167,16 +167,16 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-            {experiences.map((exp) => {
+            {experiences.map((exp, i) => {
               const isExpanded = expandedId === exp.id;
               return (
-                <div key={exp.id} className="relative mb-4 md:ml-20">
+                <Reveal key={exp.id} from="right" delay={i * 90} className="relative mb-4 md:ml-20 block">
                   {/* Timeline dot */}
                   <div className={`absolute -left-[3.05rem] top-5 w-3 h-3 rounded-full hidden md:block transition-all duration-300 ${
                     isExpanded ? 'bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]' : 'bg-muted-foreground/40'
                   }`} />
 
-                  <div className="glass-card rounded-2xl overflow-hidden">
+                  <div className="glass-card spotlight rounded-2xl overflow-hidden">
                     {/* Clickable Header */}
                     <button
                       onClick={() => toggleExpand(exp.id)}
