@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeading from './SectionHeading';
 import { Award, CheckCircle, ArrowLeft, ArrowRight, Eye } from 'lucide-react';
 import {
   Carousel,
@@ -53,12 +54,14 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Certifications & <span className="text-primary">Achievements</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border" />
-          </div>
+          <SectionHeading index="05" label="Credentials">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Certifications & <span className="text-primary">Achievements</span>
+              </h2>
+              <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep" />
+            </div>
+          </SectionHeading>
 
           {/* Carousel */}
           <div className="relative px-12">
@@ -66,7 +69,7 @@ const Certificates: React.FC<CertificatesProps> = ({ isDarkMode }) => {
               <CarouselContent className="-ml-3 md:-ml-4">
                 {certificates.map((cert, index) => (
                   <CarouselItem key={index} className="pl-3 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="glass-card rounded-2xl p-6 h-[380px] group flex flex-col">
+                    <div className="glass-card spotlight rounded-2xl p-6 h-[380px] group flex flex-col">
                       {/* Icon & Verified */}
                       <div className="flex items-start justify-between mb-5">
                         <div className="p-3 rounded-xl glass border-primary/20">

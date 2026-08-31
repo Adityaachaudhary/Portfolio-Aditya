@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeading from './SectionHeading';
 import { Brain, Code, Zap, Sparkles, Bot, Rocket, Terminal, Lightbulb, MessageSquare, Cpu, Wand2, GitBranch } from 'lucide-react';
 
 interface AIToolsProps {
@@ -28,22 +29,24 @@ const AITools: React.FC<AIToolsProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Brain className="text-primary" size={36} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                AI Tools & <span className="text-primary">Experience</span>
-              </h2>
+          <SectionHeading index="06" label="AI Workflow">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <Brain className="text-primary float-slow" size={36} />
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  AI Tools & <span className="text-primary">Experience</span>
+                </h2>
+              </div>
+              <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep" />
             </div>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border" />
-          </div>
+          </SectionHeading>
 
           {/* Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 mb-12">
             {aiTools.map((tool, index) => {
               const IconComponent = tool.icon;
               return (
-                <div key={index} className="glass-card rounded-xl p-4 group text-center">
+                <div key={index} className="glass-card spotlight press rounded-xl p-4 group text-center">
                   <div className="p-2 rounded-lg glass border-primary/20 inline-flex mb-3 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="text-primary" size={18} />
                   </div>
