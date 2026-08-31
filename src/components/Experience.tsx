@@ -144,20 +144,22 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Work <span className="text-primary">Experience</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-primary mx-auto rounded-full glow-border mb-6" />
-            <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-4">
-              Professional journey building impactful solutions and gaining valuable experience
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/20">
-              <Clock size={14} className="text-primary" />
-              <span className="text-xs font-medium text-muted-foreground">Total Experience:</span>
-              <span className="text-xs font-bold text-primary">{totalExperience}</span>
+          <SectionHeading index="03" label="Career">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Work <span className="text-primary">Experience</span>
+              </h2>
+              <div className="w-16 h-0.5 bg-primary/80 mx-auto rounded-full rule-sweep mb-6" />
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-4">
+                Professional journey building impactful solutions and gaining valuable experience
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/20">
+                <Clock size={14} className="text-primary" />
+                <span className="text-xs font-medium text-muted-foreground">Total Experience:</span>
+                <span className="text-xs font-bold text-primary">{totalExperience}</span>
+              </div>
             </div>
-          </div>
+          </SectionHeading>
 
           {/* Timeline */}
           <div className="relative">
