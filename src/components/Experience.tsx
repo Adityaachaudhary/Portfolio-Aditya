@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Calendar, MapPin, ChevronDown, Clock } from 'lucide-react';
 import TechIcon from './TechIcon';
+import SectionHeading from './SectionHeading';
+import Reveal from './Reveal';
 
 interface ExperienceProps {
   isDarkMode: boolean;
