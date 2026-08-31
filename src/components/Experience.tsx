@@ -250,7 +250,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>
