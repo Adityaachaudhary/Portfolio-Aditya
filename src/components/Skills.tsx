@@ -78,9 +78,10 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             {getFilteredSkills().map((skill, index) => (
               <div
                 key={skill}
-                className="glass-card rounded-xl p-3 cursor-pointer animate-fade-in group"
+                className="glass-card spotlight press rounded-xl p-3 cursor-pointer animate-fade-in group"
                 style={{ animationDelay: `${index * 40}ms` }}
               >
+                <div className="relative z-[1]" />
                 <div className="text-center">
                   <div className="w-8 h-8 mx-auto mb-2 rounded-lg flex items-center justify-center bg-muted/50 group-hover:bg-primary/20 transition-colors duration-300">
                     <TechIcon name={skill} size={14} className="transition-opacity duration-300" />
